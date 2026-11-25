@@ -52,13 +52,14 @@ needs) is listed with the method, and general results are in the hubs of theory:
 [lean4-phylo-combinatorics](https://github.com/vltanh/lean4-phylo-combinatorics) for the
 combinatorics of trees, compatibility and perfect phylogeny,
 [lean4-phylo-algebraic](https://github.com/vltanh/lean4-phylo-algebraic) for invariants and the
-identifiability of substitution models, and
+identifiability of substitution models,
 [lean4-phylo-statistics](https://github.com/vltanh/lean4-phylo-statistics) for fast convergence,
-sample complexity and consistency under misspecified models. The scope is the estimation of a tree
-from sequences under a model of their evolution. The alignment of the sequences, and its joint
-estimation with the tree, is in
-[lean4-phylo-alignment](https://github.com/vltanh/lean4-phylo-alignment). Species trees from
-multilocus data are in
+sample complexity and consistency under misspecified models, and
+[lean4-phylo-geometry](https://github.com/vltanh/lean4-phylo-geometry) for spaces of trees, the
+distances of tree moves, and means of trees. The scope is the estimation of a tree from sequences
+under a model of their evolution. The alignment of the sequences, and its joint estimation with the
+tree, is in [lean4-phylo-alignment](https://github.com/vltanh/lean4-phylo-alignment). Species trees
+from multilocus data are in
 [lean4-phylo-species-tree](https://github.com/vltanh/lean4-phylo-species-tree), and networks in
 [lean4-phylo-network](https://github.com/vltanh/lean4-phylo-network). The papers of family 3, the
 models of substitution, are foundations of the whole collection: their models go to the root library,

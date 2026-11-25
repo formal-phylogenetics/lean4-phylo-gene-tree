@@ -1,8 +1,11 @@
 # The papers of this hub, one [[paper]] per repository to be, grouped by family of methods: estimating a tree from sequences, typically one alignment or locus.
 #
-# Started on 2026-11-25 from the maintainer's checklist. Authors, years, titles and links are the
-# checklist's, checked against Crossref, which gave the links that the checklist lacked. Each
-# formalization records the exact citation in its Phase 0, and corrects the entry here.
+# Started on 2026-11-25 from the maintainer's checklist and its expansion. Authors, years, titles and
+# links are the lists', checked against Crossref, which gave the links that the lists lacked. Each
+# formalization records the exact citation in its Phase 0, and corrects the entry here. Jukes and
+# Cantor's chapter "Evolution of Protein Molecules" (in H. N. Munro (ed.), Mammalian Protein
+# Metabolism III, Academic Press, 1969), the source of the JC69 model, is the source of a foundation
+# (the root's sequence models), not a paper of this catalog.
 #
 # Fields of a paper:
 #   id          the repository is lean4-<id>: the method's name in lower case when the paper names
@@ -11,7 +14,7 @@
 #   order       its place in the family, by priority
 #   short       the method's name, when it has one
 #   kind        "theory" (an identifiability, consistency or characterization theorem),
-#               "theory+algorithm", or "method"
+#               "theory+algorithm", "theory+method", or "method"
 #   root        the Lean package, the root of its code and, by default, the paper's name: the
 #               method's name, otherwise first author and year (lean4-phylogenetics'
 #               docs/CONVENTIONS.md, Section 2)
@@ -39,6 +42,7 @@ title = "Distance-based inference and minimum evolution"
 [[family]]
 id = 3
 title = "Maximum parsimony and character-based inference"
+priority = "high"
 
 [[family]]
 id = 4
@@ -46,11 +50,38 @@ title = "Bayesian phylogenetic inference"
 
 [[family]]
 id = 5
-title = "Branch support and statistical hypothesis testing"
+title = "Branch support, rooting and statistical hypothesis testing"
 
 [[family]]
 id = 6
 title = "Supporting combinatorial reconstruction theory"
+
+[[family]]
+id = 7
+title = "Fast-converging phylogenetic reconstruction"
+priority = "highest"
+
+[[family]]
+id = 8
+title = "Molecular substitution models"
+priority = "foundational"
+
+[[family]]
+id = 9
+title = "Algebraic phylogenetics, invariants and identifiability"
+priority = "highest"
+
+[[family]]
+id = 10
+title = "Statistical consistency and model misspecification"
+
+[[family]]
+id = 11
+title = "Substitution-model selection and model adequacy"
+
+[[family]]
+id = 12
+title = "Large-scale divide-and-conquer reconstruction"
 
 # ---------------------------------------------------------------------------------------------
 # 1. Maximum likelihood and substitution-model identifiability
@@ -196,6 +227,110 @@ root = "IqTree2"
 status = "todo"
 builds_on = ["iqtree"]
 
+[[paper]]
+id = "lewis1998"
+family = 1
+order = 12
+authors = "Lewis"
+year = "1998"
+title = "A Genetic Algorithm for Maximum-Likelihood Phylogeny Inference Using Nucleotide Sequence Data"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a025924"
+kind = "method"
+root = "Lewis1998"
+status = "todo"
+
+[[paper]]
+id = "chor2005"
+family = 1
+order = 13
+authors = "Chor, Tuller"
+year = "2005"
+title = "Maximum Likelihood of Evolutionary Trees: Hardness and Approximation"
+url = "https://doi.org/10.1093/bioinformatics/bti1027"
+kind = "theory"
+root = "Chor2005"
+status = "todo"
+
+[[paper]]
+id = "hordijk2005"
+family = 1
+order = 14
+authors = "Hordijk, Gascuel"
+year = "2005"
+title = "Improving the Efficiency of SPR Moves in Phylogenetic Tree Search Methods Based on Maximum Likelihood"
+url = "https://doi.org/10.1093/bioinformatics/bti713"
+kind = "theory+algorithm"
+root = "Hordijk2005"
+status = "todo"
+
+[[paper]]
+id = "fasttree"
+family = 1
+order = 15
+short = "FastTree"
+authors = "Price, Dehal, Arkin"
+year = "2009"
+title = "FastTree: Computing Large Minimum Evolution Trees with Profiles Instead of a Distance Matrix"
+url = "https://doi.org/10.1093/molbev/msp077"
+kind = "method"
+root = "FastTree"
+status = "todo"
+
+[[paper]]
+id = "phyml3"
+family = 1
+order = 16
+short = "PhyML 3.0"
+authors = "Guindon et al."
+year = "2010"
+title = "New Algorithms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 3.0"
+url = "https://doi.org/10.1093/sysbio/syq010"
+kind = "method"
+root = "PhyMl3"
+status = "todo"
+builds_on = ["phyml"]
+
+[[paper]]
+id = "raxml8"
+family = 1
+order = 17
+short = "RAxML 8"
+authors = "Stamatakis"
+year = "2014"
+title = "RAxML Version 8: A Tool for Phylogenetic Analysis and Post-Analysis of Large Phylogenies"
+url = "https://doi.org/10.1093/bioinformatics/btu033"
+kind = "method"
+root = "Raxml8"
+status = "todo"
+builds_on = ["raxml"]
+
+[[paper]]
+id = "examl3"
+family = 1
+order = 18
+short = "ExaML 3"
+authors = "Kozlov, Aberer, Stamatakis"
+year = "2015"
+title = "ExaML Version 3: A Tool for Phylogenomic Analyses on Supercomputers"
+url = "https://doi.org/10.1093/bioinformatics/btv184"
+kind = "method"
+root = "ExaMl3"
+status = "todo"
+
+[[paper]]
+id = "iqtree3"
+family = 1
+order = 19
+short = "IQ-TREE 3"
+authors = "Wong et al."
+year = "2026"
+title = "IQ-TREE 3: Phylogenomic Inference Software Using Complex Evolutionary Models"
+url = "https://doi.org/10.1093/molbev/msag117"
+kind = "method"
+root = "IqTree3"
+status = "todo"
+builds_on = ["iqtree2"]
+
 # ---------------------------------------------------------------------------------------------
 # 2. Distance-based inference and minimum evolution
 # ---------------------------------------------------------------------------------------------
@@ -337,6 +472,161 @@ root = "FastMe2"
 status = "todo"
 builds_on = ["desper2002"]
 
+[[paper]]
+id = "sokal1958"
+family = 2
+order = 11
+short = "UPGMA"
+authors = "Sokal, Michener"
+year = "1958"
+title = "A Statistical Method for Evaluating Systematic Relationships"
+url = "https://www.biodiversitylibrary.org/part/385476"
+kind = "method"
+root = "Sokal1958"
+status = "todo"
+note = "University of Kansas Science Bulletin 38 (1958), with no DOI: the link is the paper in the Biodiversity Heritage Library."
+
+[[paper]]
+id = "fitch1967"
+family = 2
+order = 12
+authors = "Fitch, Margoliash"
+year = "1967"
+title = "Construction of Phylogenetic Trees: A Method Based on Mutation Distances as Estimated from Cytochrome c Sequences Is of General Applicability"
+url = "https://doi.org/10.1126/science.155.3760.279"
+kind = "method"
+root = "Fitch1967"
+status = "todo"
+
+[[paper]]
+id = "lake1994"
+family = 2
+order = 13
+authors = "Lake"
+year = "1994"
+title = "Reconstructing Evolutionary Trees from DNA and Protein Sequences: Paralinear Distances"
+url = "https://doi.org/10.1073/pnas.91.4.1455"
+kind = "theory+algorithm"
+root = "Lake1994"
+status = "todo"
+
+[[paper]]
+id = "farach1995"
+family = 2
+order = 14
+authors = "Farach, Kannan, Warnow"
+year = "1995"
+title = "A Robust Model for Finding Optimal Evolutionary Trees"
+url = "https://doi.org/10.1007/BF01188585"
+kind = "theory+algorithm"
+root = "Farach1995"
+status = "todo"
+
+[[paper]]
+id = "weighbor"
+family = 2
+order = 15
+short = "Weighbor"
+authors = "Bruno, Socci, Halpern"
+year = "2000"
+title = "Weighted Neighbor Joining: A Likelihood-Based Approach to Distance-Based Phylogeny Reconstruction (Weighbor)"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a026231"
+kind = "method"
+root = "Weighbor"
+status = "todo"
+builds_on = ["neighbor-joining"]
+
+[[paper]]
+id = "gascuel2006"
+family = 2
+order = 16
+authors = "Gascuel, Steel"
+year = "2006"
+title = "Neighbor-Joining Revealed"
+url = "https://doi.org/10.1093/molbev/msl072"
+kind = "theory"
+root = "Gascuel2006"
+status = "todo"
+builds_on = ["neighbor-joining"]
+
+[[paper]]
+id = "eickmeyer2008"
+family = 2
+order = 17
+authors = "Eickmeyer et al."
+year = "2008"
+title = "On the Optimality of the Neighbor-Joining Algorithm"
+url = "https://doi.org/10.1186/1748-7188-3-5"
+kind = "theory"
+root = "Eickmeyer2008"
+status = "todo"
+builds_on = ["neighbor-joining"]
+
+[[paper]]
+id = "elias2009"
+family = 2
+order = 18
+authors = "Elias, Lagergren"
+year = "2009"
+title = "Fast Neighbor Joining"
+url = "https://doi.org/10.1016/j.tcs.2008.12.040"
+kind = "theory+algorithm"
+root = "Elias2009"
+status = "todo"
+builds_on = ["neighbor-joining"]
+
+[[paper]]
+id = "mihaescu2009"
+family = 2
+order = 19
+authors = "Mihaescu, Levy, Pachter"
+year = "2009"
+title = "Why Neighbor-Joining Works"
+url = "https://doi.org/10.1007/s00453-007-9116-4"
+kind = "theory"
+root = "Mihaescu2009"
+status = "todo"
+builds_on = ["neighbor-joining"]
+
+[[paper]]
+id = "ninja"
+family = 2
+order = 20
+short = "NINJA"
+authors = "Wheeler"
+year = "2009"
+title = "Large-Scale Neighbor-Joining with NINJA"
+url = "https://doi.org/10.1007/978-3-642-04241-6_31"
+kind = "method"
+root = "Ninja"
+status = "todo"
+builds_on = ["neighbor-joining"]
+
+[[paper]]
+id = "fiorini2012"
+family = 2
+order = 21
+authors = "Fiorini, Joret"
+year = "2012"
+title = "Approximating the Balanced Minimum Evolution Problem"
+url = "https://doi.org/10.1016/j.orl.2011.10.003"
+kind = "theory+algorithm"
+root = "Fiorini2012"
+status = "todo"
+
+[[paper]]
+id = "clausen2023"
+family = 2
+order = 22
+authors = "Clausen"
+year = "2023"
+title = "Scaling Neighbor Joining to One Million Taxa with Dynamic and Heuristic Neighbor Joining"
+url = "https://doi.org/10.1093/bioinformatics/btac774"
+kind = "theory+algorithm"
+root = "Clausen2023"
+status = "todo"
+builds_on = ["neighbor-joining"]
+
 # ---------------------------------------------------------------------------------------------
 # 3. Maximum parsimony and character-based inference
 # ---------------------------------------------------------------------------------------------
@@ -354,22 +644,9 @@ root = "Fitch1971"
 status = "todo"
 
 [[paper]]
-id = "sankoff1975"
-family = 3
-order = 2
-authors = "Sankoff"
-year = "1975"
-title = "Minimal Mutation Trees of Sequences"
-url = "https://doi.org/10.1137/0128004"
-kind = "theory+algorithm"
-root = "Sankoff1975"
-status = "todo"
-note = "Its minimal mutation trees of sequences, with insertions and deletions, are the tree alignment problem of lean4-phylo-alignment's family 8."
-
-[[paper]]
 id = "felsenstein1978"
 family = 3
-order = 3
+order = 2
 authors = "Felsenstein"
 year = "1978"
 title = "Cases in Which Parsimony or Compatibility Methods Will Be Positively Misleading"
@@ -381,13 +658,133 @@ status = "todo"
 [[paper]]
 id = "tuffley1997"
 family = 3
-order = 4
+order = 3
 authors = "Tuffley, Steel"
 year = "1997"
 title = "Links Between Maximum Likelihood and Maximum Parsimony Under a Simple Model of Site Substitution"
 url = "https://doi.org/10.1007/BF02459467"
 kind = "theory"
 root = "Tuffley1997"
+status = "todo"
+
+[[paper]]
+id = "foulds1982"
+family = 3
+order = 4
+authors = "Foulds, Graham"
+year = "1982"
+title = "The Steiner Problem in Phylogeny Is NP-Complete"
+url = "https://doi.org/10.1016/S0196-8858(82)80004-3"
+kind = "theory"
+root = "Foulds1982"
+status = "todo"
+
+[[paper]]
+id = "gusfield1991"
+family = 3
+order = 5
+authors = "Gusfield"
+year = "1991"
+title = "Efficient Algorithms for Inferring Evolutionary Trees"
+url = "https://doi.org/10.1002/net.3230210104"
+kind = "theory+algorithm"
+root = "Gusfield1991"
+status = "todo"
+
+[[paper]]
+id = "kannan1992"
+family = 3
+order = 6
+authors = "Kannan, Warnow"
+year = "1992"
+title = "Triangulating 3-Colored Graphs"
+url = "https://doi.org/10.1137/0405019"
+kind = "theory+algorithm"
+root = "Kannan1992"
+status = "todo"
+
+[[paper]]
+id = "bodlaender1992"
+family = 3
+order = 7
+authors = "Bodlaender, Fellows, Warnow"
+year = "1992"
+title = "Two Strikes Against Perfect Phylogeny"
+url = "https://doi.org/10.1007/3-540-55719-9_80"
+kind = "theory"
+root = "Bodlaender1992"
+status = "todo"
+
+[[paper]]
+id = "kannan1994"
+family = 3
+order = 8
+authors = "Kannan, Warnow"
+year = "1994"
+title = "Inferring Evolutionary History from DNA Sequences"
+url = "https://doi.org/10.1137/S0097539791222171"
+kind = "theory+algorithm"
+root = "Kannan1994"
+status = "todo"
+
+[[paper]]
+id = "warnow1994"
+family = 3
+order = 9
+authors = "Warnow"
+year = "1994"
+title = "Tree Compatibility and Inferring Evolutionary History"
+url = "https://doi.org/10.1006/jagm.1994.1018"
+kind = "theory+algorithm"
+root = "Warnow1994"
+status = "todo"
+
+[[paper]]
+id = "mcmorris1994"
+family = 3
+order = 10
+authors = "McMorris, Warnow, Wimer"
+year = "1994"
+title = "Triangulating Vertex-Colored Graphs"
+url = "https://doi.org/10.1137/S0895480192229273"
+kind = "theory+algorithm"
+root = "Mcmorris1994"
+status = "todo"
+
+[[paper]]
+id = "agarwala1994"
+family = 3
+order = 11
+authors = "Agarwala, Fernández-Baca"
+year = "1994"
+title = "A Polynomial-Time Algorithm for the Perfect Phylogeny Problem When the Number of Character States Is Fixed"
+url = "https://doi.org/10.1137/S0097539793244587"
+kind = "theory+algorithm"
+root = "Agarwala1994"
+status = "todo"
+
+[[paper]]
+id = "kannan1997"
+family = 3
+order = 12
+authors = "Kannan, Warnow"
+year = "1997"
+title = "A Fast Algorithm for the Computation and Enumeration of Perfect Phylogenies"
+url = "https://doi.org/10.1137/S0097539794279067"
+kind = "theory+algorithm"
+root = "Kannan1997"
+status = "todo"
+
+[[paper]]
+id = "bodlaender2000"
+family = 3
+order = 13
+authors = "Bodlaender et al."
+year = "2000"
+title = "The Hardness of Perfect Phylogeny, Feasible Register Assignment and Other Problems on Thin Colored Graphs"
+url = "https://doi.org/10.1016/S0304-3975(98)00342-9"
+kind = "theory"
+root = "Bodlaender2000"
 status = "todo"
 
 # ---------------------------------------------------------------------------------------------
@@ -444,8 +841,97 @@ kind = "method"
 root = "Beast"
 status = "todo"
 
+[[paper]]
+id = "larget1999"
+family = 4
+order = 5
+authors = "Larget, Simon"
+year = "1999"
+title = "Markov Chain Monte Carlo Algorithms for the Bayesian Analysis of Phylogenetic Trees"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a026160"
+kind = "theory+algorithm"
+root = "Larget1999"
+status = "todo"
+
+[[paper]]
+id = "mossel2005"
+family = 4
+order = 6
+authors = "Mossel, Vigoda"
+year = "2005"
+title = "Phylogenetic MCMC Algorithms Are Misleading on Mixtures of Trees"
+url = "https://doi.org/10.1126/science.1115493"
+kind = "theory"
+root = "Mossel2005"
+status = "todo"
+
+[[paper]]
+id = "lakner2008"
+family = 4
+order = 7
+authors = "Lakner et al."
+year = "2008"
+title = "Efficiency of Markov Chain Monte Carlo Tree Proposals in Bayesian Phylogenetics"
+url = "https://doi.org/10.1080/10635150801886156"
+kind = "theory+algorithm"
+root = "Lakner2008"
+status = "todo"
+
+[[paper]]
+id = "mrbayes3-2"
+family = 4
+order = 8
+short = "MrBayes 3.2"
+authors = "Ronquist et al."
+year = "2012"
+title = "MrBayes 3.2: Efficient Bayesian Phylogenetic Inference and Model Choice Across a Large Model Space"
+url = "https://doi.org/10.1093/sysbio/sys029"
+kind = "method"
+root = "MrBayes32"
+status = "todo"
+builds_on = ["mrbayes"]
+
+[[paper]]
+id = "beast2"
+family = 4
+order = 9
+short = "BEAST 2"
+authors = "Bouckaert et al."
+year = "2014"
+title = "BEAST 2: A Software Platform for Bayesian Evolutionary Analysis"
+url = "https://doi.org/10.1371/journal.pcbi.1003537"
+kind = "method"
+root = "Beast2"
+status = "todo"
+builds_on = ["beast"]
+
+[[paper]]
+id = "whidden2015"
+family = 4
+order = 10
+authors = "Whidden, Matsen"
+year = "2015"
+title = "Quantifying MCMC Exploration of Phylogenetic Tree Space"
+url = "https://doi.org/10.1093/sysbio/syv006"
+kind = "theory+algorithm"
+root = "Whidden2015"
+status = "todo"
+
+[[paper]]
+id = "revbayes"
+family = 4
+order = 11
+short = "RevBayes"
+authors = "Höhna et al."
+year = "2016"
+title = "RevBayes: Bayesian Phylogenetic Inference Using Graphical Models and an Interactive Model-Specification Language"
+url = "https://doi.org/10.1093/sysbio/syw021"
+kind = "method"
+root = "RevBayes"
+status = "todo"
+
 # ---------------------------------------------------------------------------------------------
-# 5. Branch support and statistical hypothesis testing
+# 5. Branch support, rooting and statistical hypothesis testing
 # ---------------------------------------------------------------------------------------------
 
 [[paper]]
@@ -482,6 +968,106 @@ title = "Ultrafast Approximation for Phylogenetic Bootstrap"
 url = "https://doi.org/10.1093/molbev/mst024"
 kind = "method"
 root = "Minh2013"
+status = "todo"
+
+[[paper]]
+id = "kishino1989"
+family = 5
+order = 4
+authors = "Kishino, Hasegawa"
+year = "1989"
+title = "Evaluation of the Maximum Likelihood Estimate of the Evolutionary Tree Topologies from DNA Sequence Data, and the Branching Order in Hominoidea"
+url = "https://doi.org/10.1007/BF02100115"
+kind = "theory+algorithm"
+root = "Kishino1989"
+status = "todo"
+
+[[paper]]
+id = "efron1996"
+family = 5
+order = 5
+authors = "Efron, Halloran, Holmes"
+year = "1996"
+title = "Bootstrap Confidence Levels for Phylogenetic Trees"
+url = "https://doi.org/10.1073/pnas.93.14.7085"
+kind = "theory"
+root = "Efron1996"
+status = "todo"
+builds_on = ["felsenstein1985"]
+
+[[paper]]
+id = "shimodaira1999"
+family = 5
+order = 6
+authors = "Shimodaira, Hasegawa"
+year = "1999"
+title = "Multiple Comparisons of Log-Likelihoods with Applications to Phylogenetic Inference"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a026201"
+kind = "theory+algorithm"
+root = "Shimodaira1999"
+status = "todo"
+
+[[paper]]
+id = "huelsenbeck2002"
+family = 5
+order = 7
+authors = "Huelsenbeck, Bollback, Levine"
+year = "2002"
+title = "Inferring the Root of a Phylogenetic Tree"
+url = "https://doi.org/10.1080/106351502753475862"
+kind = "method"
+root = "Huelsenbeck2002"
+status = "todo"
+
+[[paper]]
+id = "yap2005"
+family = 5
+order = 8
+authors = "Yap, Speed"
+year = "2005"
+title = "Rooting a Phylogenetic Tree with Nonreversible Substitution Models"
+url = "https://doi.org/10.1186/1471-2148-5-2"
+kind = "method"
+root = "Yap2005"
+status = "todo"
+
+[[paper]]
+id = "anisimova2006"
+family = 5
+order = 9
+short = "aLRT"
+authors = "Anisimova, Gascuel"
+year = "2006"
+title = "Approximate Likelihood-Ratio Test for Branches: A Fast, Accurate, and Powerful Alternative"
+url = "https://doi.org/10.1080/10635150600755453"
+kind = "theory+algorithm"
+root = "Anisimova2006"
+status = "todo"
+
+[[paper]]
+id = "ufboot2"
+family = 5
+order = 10
+short = "UFBoot2"
+authors = "Hoang et al."
+year = "2018"
+title = "UFBoot2: Improving the Ultrafast Bootstrap Approximation"
+url = "https://doi.org/10.1093/molbev/msx281"
+kind = "method"
+root = "UfBoot2"
+status = "todo"
+builds_on = ["minh2013"]
+
+[[paper]]
+id = "naserkhdour2022"
+family = 5
+order = 11
+authors = "Naser-Khdour, Minh, Lanfear"
+year = "2022"
+title = "Assessing Confidence in Root Placement on Phylogenies: An Empirical Study Using Nonreversible Models for Mammals"
+url = "https://doi.org/10.1093/sysbio/syab067"
+kind = "method"
+root = "NaserKhdour2022"
 status = "todo"
 
 # ---------------------------------------------------------------------------------------------
@@ -530,3 +1116,906 @@ covered_by = [
   { repo = "lean4-phylogenetics", what = "a tree is determined by its quartets, and every internal edge is distinguished by a quartet (Proposition 6), for trees that need not be binary (Phylogenetics/Hierarchy/Quartets.lean)" },
 ]
 note = "A foundation of the collection: its reusable results go to lean4-phylogenetics, and the paper's repository formalizes the rest (docs/CONVENTIONS.md, Section 4)"
+
+# ---------------------------------------------------------------------------------------------
+# 7. Fast-converging phylogenetic reconstruction
+# ---------------------------------------------------------------------------------------------
+
+[[paper]]
+id = "erdos1999-part1"
+family = 7
+order = 1
+authors = "Erdős, Steel, Székely, Warnow"
+year = "1999"
+title = "A Few Logs Suffice to Build (Almost) All Trees (I)"
+url = "https://doi.org/10.1002/(SICI)1098-2418(199903)14:2%3C153::AID-RSA3%3E3.0.CO;2-R"
+kind = "theory+algorithm"
+root = "Erdos1999Part1"
+status = "todo"
+
+[[paper]]
+id = "erdos1999-part2"
+family = 7
+order = 2
+authors = "Erdős, Steel, Székely, Warnow"
+year = "1999"
+title = "A Few Logs Suffice to Build (Almost) All Trees, Part II"
+url = "https://doi.org/10.1016/S0304-3975(99)00028-6"
+kind = "theory+algorithm"
+root = "Erdos1999Part2"
+status = "todo"
+builds_on = ["erdos1999-part1"]
+
+[[paper]]
+id = "dcm"
+family = 7
+order = 3
+short = "DCM"
+authors = "Huson, Nettles, Warnow"
+year = "1999"
+title = "Disk-Covering, a Fast-Converging Method for Phylogenetic Tree Reconstruction"
+url = "https://doi.org/10.1089/106652799318337"
+kind = "theory+algorithm"
+root = "Dcm"
+status = "todo"
+
+[[paper]]
+id = "dcm2"
+family = 7
+order = 4
+short = "DCM-2"
+authors = "Huson, Vawter, Warnow"
+year = "1999"
+title = "Solving Large Scale Phylogenetic Problems Using DCM-2"
+url = "https://pubmed.ncbi.nlm.nih.gov/10786294/"
+kind = "method"
+root = "Dcm2"
+status = "todo"
+builds_on = ["dcm"]
+note = "In the proceedings of ISMB 1999, 118–129, with no DOI: the link is its PubMed record."
+
+[[paper]]
+id = "huson1999-hybrid"
+family = 7
+order = 5
+authors = "Huson et al."
+year = "1999"
+title = "Hybrid Tree Reconstruction Methods"
+url = "https://doi.org/10.1145/347792.347812"
+kind = "method"
+root = "Huson1999Hybrid"
+status = "todo"
+
+[[paper]]
+id = "warnow2001"
+family = 7
+order = 6
+authors = "Warnow, Moret, St. John"
+year = "2001"
+title = "Absolute Convergence: True Trees from Short Sequences"
+url = "https://dl.acm.org/doi/10.5555/365411.365443"
+kind = "theory+algorithm"
+root = "Warnow2001"
+status = "todo"
+note = "In the proceedings of SODA 2001, with no DOI: the link is the ACM Digital Library's page."
+
+[[paper]]
+id = "nakhleh2001"
+family = 7
+order = 7
+authors = "Nakhleh et al."
+year = "2001"
+title = "Designing Fast Converging Phylogenetic Methods"
+url = "https://doi.org/10.1093/bioinformatics/17.suppl_1.s190"
+kind = "theory+algorithm"
+root = "Nakhleh2001"
+status = "todo"
+
+[[paper]]
+id = "mossel2004"
+family = 7
+order = 8
+authors = "Mossel"
+year = "2004"
+title = "Phase Transitions in Phylogeny"
+url = "https://doi.org/10.1090/S0002-9947-03-03382-8"
+kind = "theory"
+root = "Mossel2004"
+status = "todo"
+
+[[paper]]
+id = "mossel2007"
+family = 7
+order = 9
+authors = "Mossel"
+year = "2007"
+title = "Distorted Metrics on Trees and Phylogenetic Forests"
+url = "https://doi.org/10.1109/TCBB.2007.1010"
+kind = "theory+algorithm"
+root = "Mossel2007"
+status = "todo"
+
+[[paper]]
+id = "roch2010"
+family = 7
+order = 10
+authors = "Roch"
+year = "2010"
+title = "Toward Extracting All Phylogenetic Information from Matrices of Evolutionary Distances"
+url = "https://doi.org/10.1126/science.1182300"
+kind = "theory+algorithm"
+root = "Roch2010"
+status = "todo"
+
+[[paper]]
+id = "daskalakis2011"
+family = 7
+order = 11
+authors = "Daskalakis, Mossel, Roch"
+year = "2011"
+title = "Evolutionary Trees and the Ising Model on the Bethe Lattice: A Proof of Steel's Conjecture"
+url = "https://doi.org/10.1007/s00440-009-0246-2"
+kind = "theory+algorithm"
+root = "Daskalakis2011"
+status = "todo"
+note = "First as Optimal Phylogenetic Reconstruction, in STOC 2006 (https://doi.org/10.1145/1132516.1132540; arXiv math/0509575)."
+
+[[paper]]
+id = "mossel2011"
+family = 7
+order = 12
+authors = "Mossel, Roch, Sly"
+year = "2011"
+title = "On the Inference of Large Phylogenies with Long Branches: How Long Is Too Long?"
+url = "https://doi.org/10.1007/s11538-010-9584-6"
+kind = "theory+algorithm"
+root = "Mossel2011"
+status = "todo"
+
+[[paper]]
+id = "gronau2012"
+family = 7
+order = 13
+authors = "Gronau, Moran, Snir"
+year = "2012"
+title = "Fast and Reliable Reconstruction of Phylogenetic Trees with Indistinguishable Edges"
+url = "https://doi.org/10.1002/rsa.20372"
+kind = "theory+algorithm"
+root = "Gronau2012"
+status = "todo"
+
+[[paper]]
+id = "roch2017"
+family = 7
+order = 14
+authors = "Roch, Sly"
+year = "2017"
+title = "Phase Transition in the Sample Complexity of Likelihood-Based Phylogeny Inference"
+url = "https://doi.org/10.1007/s00440-017-0793-x"
+kind = "theory"
+root = "Roch2017"
+status = "todo"
+
+[[paper]]
+id = "kim2026"
+family = 7
+order = 15
+authors = "Kim et al."
+year = "2026"
+title = "Practical Phylogenetic Usage of Theoretical Advances in Distance-Based Tree Learning"
+url = "https://doi.org/10.1186/s12859-026-06488-y"
+kind = "method"
+root = "Kim2026"
+status = "todo"
+
+# ---------------------------------------------------------------------------------------------
+# 8. Molecular substitution models
+# ---------------------------------------------------------------------------------------------
+
+[[paper]]
+id = "neyman1971"
+family = 8
+order = 1
+authors = "Neyman"
+year = "1971"
+title = "Molecular Studies of Evolution: A Source of Novel Statistical Problems"
+url = "https://doi.org/10.1016/B978-0-12-307550-5.50005-8"
+kind = "theory"
+root = "Neyman1971"
+status = "todo"
+note = "A chapter of S. S. Gupta, J. Yackel (eds.), Statistical Decision Theory and Related Topics (Academic Press, 1971)."
+
+[[paper]]
+id = "kimura1980"
+family = 8
+order = 2
+authors = "Kimura"
+year = "1980"
+title = "A Simple Method for Estimating Evolutionary Rates of Base Substitutions Through Comparative Studies of Nucleotide Sequences"
+url = "https://doi.org/10.1007/BF01731581"
+kind = "theory+algorithm"
+root = "Kimura1980"
+status = "todo"
+
+[[paper]]
+id = "kimura1981"
+family = 8
+order = 3
+authors = "Kimura"
+year = "1981"
+title = "Estimation of Evolutionary Distances Between Homologous Nucleotide Sequences"
+url = "https://doi.org/10.1073/pnas.78.1.454"
+kind = "theory+algorithm"
+root = "Kimura1981"
+status = "todo"
+
+[[paper]]
+id = "hasegawa1985"
+family = 8
+order = 4
+short = "HKY85"
+authors = "Hasegawa, Kishino, Yano"
+year = "1985"
+title = "Dating of the Human-Ape Splitting by a Molecular Clock of Mitochondrial DNA"
+url = "https://doi.org/10.1007/BF02101694"
+kind = "method"
+root = "Hasegawa1985"
+status = "todo"
+
+[[paper]]
+id = "tavare1986"
+family = 8
+order = 5
+authors = "Tavaré"
+year = "1986"
+title = "Some Probabilistic and Statistical Problems in the Analysis of DNA Sequences"
+url = "https://openlibrary.org/books/OL2285184M"
+kind = "theory"
+root = "Tavare1986"
+status = "todo"
+note = "The general time-reversible model. A chapter of R. M. Miura (ed.), Some Mathematical Questions in Biology: DNA Sequence Analysis, Lectures on Mathematics in the Life Sciences 17 (American Mathematical Society, 1986), with no DOI: the link is the book's record."
+
+[[paper]]
+id = "rodriguez1990"
+family = 8
+order = 6
+authors = "Rodríguez et al."
+year = "1990"
+title = "The General Stochastic Model of Nucleotide Substitution"
+url = "https://doi.org/10.1016/S0022-5193(05)80104-3"
+kind = "theory"
+root = "Rodriguez1990"
+status = "todo"
+
+[[paper]]
+id = "tamura1992"
+family = 8
+order = 7
+authors = "Tamura"
+year = "1992"
+title = "Estimation of the Number of Nucleotide Substitutions When There Are Strong Transition-Transversion and G+C-Content Biases"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a040752"
+kind = "theory+algorithm"
+root = "Tamura1992"
+status = "todo"
+
+[[paper]]
+id = "tamura1993"
+family = 8
+order = 8
+authors = "Tamura, Nei"
+year = "1993"
+title = "Estimation of the Number of Nucleotide Substitutions in the Control Region of Mitochondrial DNA in Humans and Chimpanzees"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a040023"
+kind = "theory+algorithm"
+root = "Tamura1993"
+status = "todo"
+
+[[paper]]
+id = "goldman1994"
+family = 8
+order = 9
+authors = "Goldman, Yang"
+year = "1994"
+title = "A Codon-Based Model of Nucleotide Substitution for Protein-Coding DNA Sequences"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a040153"
+kind = "theory+algorithm"
+root = "Goldman1994"
+status = "todo"
+
+[[paper]]
+id = "muse1994"
+family = 8
+order = 10
+authors = "Muse, Gaut"
+year = "1994"
+title = "A Likelihood Approach for Comparing Synonymous and Nonsynonymous Nucleotide Substitution Rates, with Application to the Chloroplast Genome"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a040152"
+kind = "theory+algorithm"
+root = "Muse1994"
+status = "todo"
+
+[[paper]]
+id = "yang1994"
+family = 8
+order = 11
+authors = "Yang"
+year = "1994"
+title = "Maximum Likelihood Phylogenetic Estimation from DNA Sequences with Variable Rates Over Sites: Approximate Methods"
+url = "https://doi.org/10.1007/BF00160154"
+kind = "theory+algorithm"
+root = "Yang1994"
+status = "todo"
+
+[[paper]]
+id = "gu1995"
+family = 8
+order = 12
+authors = "Gu, Fu, Li"
+year = "1995"
+title = "Maximum Likelihood Estimation of the Heterogeneity of Substitution Rate Among Nucleotide Sites"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a040235"
+kind = "theory+algorithm"
+root = "Gu1995"
+status = "todo"
+
+[[paper]]
+id = "felsenstein1996"
+family = 8
+order = 13
+authors = "Felsenstein, Churchill"
+year = "1996"
+title = "A Hidden Markov Model Approach to Variation Among Sites in Rate of Evolution"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a025575"
+kind = "theory+algorithm"
+root = "Felsenstein1996"
+status = "todo"
+
+[[paper]]
+id = "tuffley1998"
+family = 8
+order = 14
+authors = "Tuffley, Steel"
+year = "1998"
+title = "Modeling the Covarion Hypothesis of Nucleotide Substitution"
+url = "https://doi.org/10.1016/S0025-5564(97)00081-3"
+kind = "theory+algorithm"
+root = "Tuffley1998"
+status = "todo"
+
+[[paper]]
+id = "whelan2001"
+family = 8
+order = 15
+short = "WAG"
+authors = "Whelan, Goldman"
+year = "2001"
+title = "A General Empirical Model of Protein Evolution Derived from Multiple Protein Families Using a Maximum-Likelihood Approach"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a003851"
+kind = "method"
+root = "Whelan2001"
+status = "todo"
+
+[[paper]]
+id = "lartillot2004"
+family = 8
+order = 16
+short = "CAT"
+authors = "Lartillot, Philippe"
+year = "2004"
+title = "A Bayesian Mixture Model for Across-Site Heterogeneities in the Amino-Acid Replacement Process"
+url = "https://doi.org/10.1093/molbev/msh112"
+kind = "theory+algorithm"
+root = "Lartillot2004"
+status = "todo"
+
+[[paper]]
+id = "le2008"
+family = 8
+order = 17
+short = "LG"
+authors = "Le, Gascuel"
+year = "2008"
+title = "An Improved General Amino Acid Replacement Matrix"
+url = "https://doi.org/10.1093/molbev/msn067"
+kind = "method"
+root = "Le2008"
+status = "todo"
+
+[[paper]]
+id = "kolaczkowski2008"
+family = 8
+order = 18
+authors = "Kolaczkowski, Thornton"
+year = "2008"
+title = "A Mixed Branch Length Model of Heterotachy Improves Phylogenetic Accuracy"
+url = "https://doi.org/10.1093/molbev/msn042"
+kind = "method"
+root = "Kolaczkowski2008"
+status = "todo"
+
+# ---------------------------------------------------------------------------------------------
+# 9. Algebraic phylogenetics, invariants and identifiability
+# ---------------------------------------------------------------------------------------------
+
+[[paper]]
+id = "lake1987"
+family = 9
+order = 1
+authors = "Lake"
+year = "1987"
+title = "A Rate-Independent Technique for Analysis of Nucleic Acid Sequences: Evolutionary Parsimony"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a040433"
+kind = "theory+algorithm"
+root = "Lake1987"
+status = "todo"
+
+[[paper]]
+id = "cavender1987"
+family = 9
+order = 2
+authors = "Cavender, Felsenstein"
+year = "1987"
+title = "Invariants of Phylogenies in a Simple Case with Discrete States"
+url = "https://doi.org/10.1007/BF01890075"
+kind = "theory"
+root = "Cavender1987"
+status = "todo"
+
+[[paper]]
+id = "evans1993"
+family = 9
+order = 3
+authors = "Evans, Speed"
+year = "1993"
+title = "Invariants of Some Probability Models Used in Phylogenetic Inference"
+url = "https://doi.org/10.1214/aos/1176349030"
+kind = "theory"
+root = "Evans1993"
+status = "todo"
+
+[[paper]]
+id = "szekely1993"
+family = 9
+order = 4
+authors = "Székely, Steel, Erdős"
+year = "1993"
+title = "Fourier Calculus on Evolutionary Trees"
+url = "https://doi.org/10.1006/aama.1993.1011"
+kind = "theory"
+root = "Szekely1993"
+status = "todo"
+
+[[paper]]
+id = "hendy1993"
+family = 9
+order = 5
+authors = "Hendy, Penny"
+year = "1993"
+title = "Spectral Analysis of Phylogenetic Data"
+url = "https://doi.org/10.1007/BF02638451"
+kind = "theory+algorithm"
+root = "Hendy1993"
+status = "todo"
+
+[[paper]]
+id = "allman2003"
+family = 9
+order = 6
+authors = "Allman, Rhodes"
+year = "2003"
+title = "Phylogenetic Invariants for the General Markov Model of Sequence Mutation"
+url = "https://doi.org/10.1016/j.mbs.2003.08.004"
+kind = "theory"
+root = "Allman2003"
+status = "todo"
+
+[[paper]]
+id = "allman2004"
+family = 9
+order = 7
+authors = "Allman, Rhodes"
+year = "2004"
+title = "Quartets and Parameter Recovery for the General Markov Model of Sequence Mutation"
+url = "https://doi.org/10.1155/S1687120004020283"
+kind = "theory"
+root = "Allman2004"
+status = "todo"
+
+[[paper]]
+id = "eriksson2005"
+family = 9
+order = 8
+authors = "Eriksson"
+year = "2005"
+title = "Tree Construction Using Singular Value Decomposition"
+url = "https://doi.org/10.1017/CBO9780511610684.023"
+kind = "theory+algorithm"
+root = "Eriksson2005"
+status = "todo"
+
+[[paper]]
+id = "allman2006"
+family = 9
+order = 9
+authors = "Allman, Rhodes"
+year = "2006"
+title = "The Identifiability of Tree Topology for Phylogenetic Models, Including Covarion and Mixture Models"
+url = "https://doi.org/10.1089/cmb.2006.13.1101"
+kind = "theory"
+root = "Allman2006"
+status = "todo"
+
+[[paper]]
+id = "casanellas2007"
+family = 9
+order = 10
+authors = "Casanellas, Fernández-Sánchez"
+year = "2007"
+title = "Performance of a New Invariants Method on Homogeneous and Nonhomogeneous Quartet Trees"
+url = "https://doi.org/10.1093/molbev/msl153"
+kind = "method"
+root = "Casanellas2007"
+status = "todo"
+
+[[paper]]
+id = "allman2008-ideals"
+family = 9
+order = 11
+authors = "Allman, Rhodes"
+year = "2008"
+title = "Phylogenetic Ideals and Varieties for the General Markov Model"
+url = "https://doi.org/10.1016/j.aam.2006.10.002"
+kind = "theory"
+root = "Allman2008Ideals"
+status = "todo"
+
+[[paper]]
+id = "allman2008-gamma"
+family = 9
+order = 12
+authors = "Allman, Ané, Rhodes"
+year = "2008"
+title = "Identifiability of a Markovian Model of Molecular Evolution with Gamma-Distributed Rates"
+url = "https://doi.org/10.1239/aap/1208358894"
+kind = "theory"
+root = "Allman2008Gamma"
+status = "todo"
+
+[[paper]]
+id = "allman2011-mixtures"
+family = 9
+order = 13
+authors = "Allman et al."
+year = "2011"
+title = "Identifiability of Two-Tree Mixtures for Group-Based Models"
+url = "https://doi.org/10.1109/TCBB.2010.79"
+kind = "theory"
+root = "Allman2011Mixtures"
+status = "todo"
+
+[[paper]]
+id = "rhodes2012"
+family = 9
+order = 14
+authors = "Rhodes, Sullivant"
+year = "2012"
+title = "Identifiability of Large Phylogenetic Mixture Models"
+url = "https://doi.org/10.1007/s11538-011-9672-2"
+kind = "theory"
+root = "Rhodes2012"
+status = "todo"
+
+[[paper]]
+id = "fernandezsanchez2016"
+family = 9
+order = 15
+authors = "Fernández-Sánchez, Casanellas"
+year = "2016"
+title = "Invariant Versus Classical Quartet Inference When Evolution Is Heterogeneous Across Sites and Lineages"
+url = "https://doi.org/10.1093/sysbio/syv086"
+kind = "theory+algorithm"
+root = "FernandezSanchez2016"
+status = "todo"
+builds_on = ["casanellas2007"]
+
+# ---------------------------------------------------------------------------------------------
+# 10. Statistical consistency and model misspecification
+# ---------------------------------------------------------------------------------------------
+
+[[paper]]
+id = "felsenstein1973"
+family = 10
+order = 1
+authors = "Felsenstein"
+year = "1973"
+title = "Maximum-Likelihood Estimation of Evolutionary Trees from Continuous Characters"
+url = "https://pmc.ncbi.nlm.nih.gov/articles/PMC1762641/"
+kind = "theory+algorithm"
+root = "Felsenstein1973"
+status = "todo"
+note = "American Journal of Human Genetics 25 (1973) 471–492, with no DOI: the link is the paper in PubMed Central."
+
+[[paper]]
+id = "rogers1997"
+family = 10
+order = 2
+authors = "Rogers"
+year = "1997"
+title = "On the Consistency of Maximum Likelihood Estimation of Phylogenetic Trees from Nucleotide Sequences"
+url = "https://doi.org/10.2307/2413629"
+kind = "theory"
+root = "Rogers1997"
+status = "todo"
+
+[[paper]]
+id = "huelsenbeck1996"
+family = 10
+order = 3
+authors = "Huelsenbeck, Hillis, Nielsen"
+year = "1996"
+title = "A Likelihood-Ratio Test of Monophyly"
+url = "https://doi.org/10.1093/sysbio/45.4.546"
+kind = "theory+algorithm"
+root = "Huelsenbeck1996"
+status = "todo"
+
+[[paper]]
+id = "kolaczkowski2004"
+family = 10
+order = 4
+authors = "Kolaczkowski, Thornton"
+year = "2004"
+title = "Performance of Maximum Parsimony and Likelihood Phylogenetics When Evolution Is Heterogeneous"
+url = "https://doi.org/10.1038/nature02917"
+kind = "theory"
+root = "Kolaczkowski2004"
+status = "todo"
+
+[[paper]]
+id = "matsen2007"
+family = 10
+order = 5
+authors = "Matsen, Steel"
+year = "2007"
+title = "Phylogenetic Mixtures on a Single Tree Can Mimic a Tree of Another Topology"
+url = "https://doi.org/10.1080/10635150701627304"
+kind = "theory"
+root = "Matsen2007"
+status = "todo"
+
+[[paper]]
+id = "stefankovic2007"
+family = 10
+order = 6
+authors = "Štefankovič, Vigoda"
+year = "2007"
+title = "Phylogeny of Mixture Models: Robustness of Maximum Likelihood and Non-Identifiable Distributions"
+url = "https://doi.org/10.1089/cmb.2006.0126"
+kind = "theory"
+root = "Stefankovic2007"
+status = "todo"
+
+[[paper]]
+id = "stefankovic2007-pitfalls"
+family = 10
+order = 7
+authors = "Štefankovič, Vigoda"
+year = "2007"
+title = "Pitfalls of Heterogeneous Processes for Phylogenetic Reconstruction"
+url = "https://doi.org/10.1080/10635150701245388"
+kind = "theory"
+root = "Stefankovic2007Pitfalls"
+status = "todo"
+
+[[paper]]
+id = "steel2011"
+family = 10
+order = 8
+authors = "Steel"
+year = "2011"
+title = "Can We Avoid \"SIN\" in the House of \"No Common Mechanism\"?"
+url = "https://doi.org/10.1093/sysbio/syq069"
+kind = "theory"
+root = "Steel2011"
+status = "todo"
+
+[[paper]]
+id = "allman2012"
+family = 10
+order = 9
+authors = "Allman, Rhodes, Sullivant"
+year = "2012"
+title = "When Do Phylogenetic Mixture Models Mimic Other Phylogenetic Models?"
+url = "https://doi.org/10.1093/sysbio/sys064"
+kind = "theory"
+root = "Allman2012"
+status = "todo"
+
+# ---------------------------------------------------------------------------------------------
+# 11. Substitution-model selection and model adequacy
+# ---------------------------------------------------------------------------------------------
+
+[[paper]]
+id = "goldman1993"
+family = 11
+order = 1
+authors = "Goldman"
+year = "1993"
+title = "Statistical Tests of Models of DNA Substitution"
+url = "https://doi.org/10.1007/BF00166252"
+kind = "theory+algorithm"
+root = "Goldman1993"
+status = "todo"
+
+[[paper]]
+id = "bollback2002"
+family = 11
+order = 2
+authors = "Bollback"
+year = "2002"
+title = "Bayesian Model Adequacy and Choice in Phylogenetics"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a004175"
+kind = "theory+algorithm"
+root = "Bollback2002"
+status = "todo"
+
+[[paper]]
+id = "modeltest"
+family = 11
+order = 3
+short = "MODELTEST"
+authors = "Posada, Crandall"
+year = "1998"
+title = "MODELTEST: Testing the Model of DNA Substitution"
+url = "https://doi.org/10.1093/bioinformatics/14.9.817"
+kind = "method"
+root = "ModelTest"
+status = "todo"
+
+[[paper]]
+id = "prottest"
+family = 11
+order = 4
+short = "ProtTest"
+authors = "Abascal, Zardoya, Posada"
+year = "2005"
+title = "ProtTest: Selection of Best-Fit Models of Protein Evolution"
+url = "https://doi.org/10.1093/bioinformatics/bti263"
+kind = "method"
+root = "ProtTest"
+status = "todo"
+
+[[paper]]
+id = "jmodeltest"
+family = 11
+order = 5
+short = "jModelTest"
+authors = "Posada"
+year = "2008"
+title = "jModelTest: Phylogenetic Model Averaging"
+url = "https://doi.org/10.1093/molbev/msn083"
+kind = "method"
+root = "JModelTest"
+status = "todo"
+builds_on = ["modeltest"]
+
+[[paper]]
+id = "partitionfinder"
+family = 11
+order = 6
+short = "PartitionFinder"
+authors = "Lanfear et al."
+year = "2012"
+title = "PartitionFinder: Combined Selection of Partitioning Schemes and Substitution Models for Phylogenetic Analyses"
+url = "https://doi.org/10.1093/molbev/mss020"
+kind = "method"
+root = "PartitionFinder"
+status = "todo"
+
+[[paper]]
+id = "jmodeltest2"
+family = 11
+order = 7
+short = "jModelTest 2"
+authors = "Darriba et al."
+year = "2012"
+title = "jModelTest 2: More Models, New Heuristics and Parallel Computing"
+url = "https://doi.org/10.1038/nmeth.2109"
+kind = "method"
+root = "JModelTest2"
+status = "todo"
+builds_on = ["jmodeltest"]
+
+[[paper]]
+id = "bmodeltest"
+family = 11
+order = 8
+short = "bModelTest"
+authors = "Bouckaert, Drummond"
+year = "2017"
+title = "bModelTest: Bayesian Phylogenetic Site Model Averaging and Model Comparison"
+url = "https://doi.org/10.1186/s12862-017-0890-6"
+kind = "method"
+root = "BModelTest"
+status = "todo"
+
+[[paper]]
+id = "modelfinder"
+family = 11
+order = 9
+short = "ModelFinder"
+authors = "Kalyaanamoorthy et al."
+year = "2017"
+title = "ModelFinder: Fast Model Selection for Accurate Phylogenetic Estimates"
+url = "https://doi.org/10.1038/nmeth.4285"
+kind = "method"
+root = "ModelFinder"
+status = "todo"
+
+[[paper]]
+id = "fabreti2023"
+family = 11
+order = 10
+authors = "Fabreti, Höhna"
+year = "2023"
+title = "Nucleotide Substitution Model Selection Is Not Necessary for Bayesian Inference of Phylogeny with Well-Behaved Priors"
+url = "https://doi.org/10.1093/sysbio/syad041"
+kind = "theory+method"
+root = "Fabreti2023"
+status = "todo"
+
+# ---------------------------------------------------------------------------------------------
+# 12. Large-scale divide-and-conquer reconstruction
+# ---------------------------------------------------------------------------------------------
+
+[[paper]]
+id = "henzinger1999"
+family = 12
+order = 1
+authors = "Henzinger, King, Warnow"
+year = "1999"
+title = "Constructing a Tree from Homeomorphic Subtrees, with Applications to Computational Evolutionary Biology"
+url = "https://doi.org/10.1007/PL00009268"
+kind = "theory+algorithm"
+root = "Henzinger1999"
+status = "todo"
+
+[[paper]]
+id = "rec-i-dcm3"
+family = 12
+order = 2
+short = "Rec-I-DCM3"
+authors = "Roshan et al."
+year = "2004"
+title = "Rec-I-DCM3: A Fast Algorithmic Technique for Reconstructing Large Phylogenetic Trees"
+url = "https://doi.org/10.1109/CSB.2004.1332422"
+kind = "method"
+root = "RecIDcm3"
+status = "todo"
+builds_on = ["dcm"]
+
+[[paper]]
+id = "dactal"
+family = 12
+order = 3
+short = "DACTAL"
+authors = "Nelesen et al."
+year = "2012"
+title = "DACTAL: Divide-and-Conquer Trees (Almost) Without Alignments"
+url = "https://doi.org/10.1093/bioinformatics/bts218"
+kind = "method"
+root = "Dactal"
+status = "todo"
+
+[[paper]]
+id = "zhang2019"
+family = 12
+order = 4
+authors = "Zhang, Rao, Warnow"
+year = "2019"
+title = "Constrained Incremental Tree Building: New Absolute Fast Converging Phylogeny Estimation Methods with Improved Scalability and Accuracy"
+url = "https://doi.org/10.1186/s13015-019-0136-9"
+kind = "theory+algorithm"
+root = "Zhang2019"
+status = "todo"

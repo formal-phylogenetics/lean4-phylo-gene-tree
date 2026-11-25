@@ -2,20 +2,18 @@
 
 [![CI](https://github.com/vltanh/lean4-phylo-gene-tree/actions/workflows/ci.yml/badge.svg)](https://github.com/vltanh/lean4-phylo-gene-tree/actions/workflows/ci.yml)
 
-Lean 4 formalizations of the methods and theory of estimating a phylogenetic tree under a model of
-sequence evolution, typically from one alignment or locus, one paper per repository. They start with
-maximum likelihood and its optimization; continue with distance methods and minimum evolution,
-parsimony, perfect phylogeny and the compatibility of characters, and Bayesian inference and its Markov
-chains; then branch support, rooting and tests, and the combinatorial results that the reconstruction of
-trees rests on; and end with fast-converging methods and the sequence lengths they need, the models of
-substitution, algebraic phylogenetics and identifiability, consistency when the model is wrong, the
-selection of models, and divide-and-conquer reconstruction at scale.
+Lean 4 formalizations of the methods of estimating a phylogenetic tree under a model of sequence
+evolution, typically from one alignment or locus, and of the theory of each method, one paper per
+repository. They start with maximum likelihood and tree search; continue with distance methods and
+minimum evolution, the models of substitution and their selection, parsimony, and Bayesian inference
+and its Markov chains; and end with branch support, rooting and tests, and divide-and-conquer
+reconstruction at scale.
 
 This repository is their hub, in the collection rooted at
 [lean4-phylogenetics](https://github.com/vltanh/lean4-phylogenetics). It holds:
 
 - the library [`PhyloGeneTree`](PhyloGeneTree), for what two papers or more of this hub share and the root library
-  does not hold. It has nothing yet: what they share so far (trees and tree metrics, Buneman's four-point theorem and neighbor joining) is in the root library.
+  does not hold. It has nothing yet: what they share so far (trees and tree metrics, neighbor joining) is in the root library.
   Its [README](PhyloGeneTree/README.md) says what goes there;
 - the catalog of the papers, [`catalog/papers.toml`](catalog/papers.toml), from which the tables
   below are generated.
@@ -34,177 +32,96 @@ against the paper, and an audit of the paper reports its errors and gaps.
 
 | Family | Papers | Formalized | In progress | Partly covered | To do |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| [1. Maximum likelihood and substitution-model identifiability](#1-maximum-likelihood-and-substitution-model-identifiability) | 19 | 0 | 0 | 0 | 19 |
-| [2. Distance-based inference and minimum evolution](#2-distance-based-inference-and-minimum-evolution) | 22 | 0 | 0 | 3 | 19 |
-| [3. Maximum parsimony and character-based inference](#3-maximum-parsimony-and-character-based-inference) | 13 | 0 | 0 | 0 | 13 |
-| [4. Bayesian phylogenetic inference](#4-bayesian-phylogenetic-inference) | 11 | 0 | 0 | 0 | 11 |
-| [5. Branch support, rooting and statistical hypothesis testing](#5-branch-support-rooting-and-statistical-hypothesis-testing) | 11 | 0 | 0 | 0 | 11 |
-| [6. Supporting combinatorial reconstruction theory](#6-supporting-combinatorial-reconstruction-theory) | 3 | 0 | 0 | 1 | 2 |
-| [7. Fast-converging phylogenetic reconstruction](#7-fast-converging-phylogenetic-reconstruction) | 15 | 0 | 0 | 0 | 15 |
-| [8. Molecular substitution models](#8-molecular-substitution-models) | 18 | 0 | 0 | 0 | 18 |
-| [9. Algebraic phylogenetics, invariants and identifiability](#9-algebraic-phylogenetics-invariants-and-identifiability) | 15 | 0 | 0 | 0 | 15 |
-| [10. Statistical consistency and model misspecification](#10-statistical-consistency-and-model-misspecification) | 9 | 0 | 0 | 0 | 9 |
-| [11. Substitution-model selection and model adequacy](#11-substitution-model-selection-and-model-adequacy) | 10 | 0 | 0 | 0 | 10 |
-| [12. Large-scale divide-and-conquer reconstruction](#12-large-scale-divide-and-conquer-reconstruction) | 4 | 0 | 0 | 0 | 4 |
-| **All** | **150** | **0** | **0** | **4** | **146** |
+| [1. Maximum likelihood and tree-search algorithms](#1-maximum-likelihood-and-tree-search-algorithms) | 18 | 0 | 0 | 0 | 18 |
+| [2. Distance-based inference and minimum evolution](#2-distance-based-inference-and-minimum-evolution) | 22 | 0 | 0 | 2 | 20 |
+| [3. Molecular substitution models](#3-molecular-substitution-models) | 18 | 0 | 0 | 0 | 18 |
+| [4. Substitution-model selection and adequacy](#4-substitution-model-selection-and-adequacy) | 10 | 0 | 0 | 0 | 10 |
+| [5. Maximum parsimony](#5-maximum-parsimony) | 2 | 0 | 0 | 0 | 2 |
+| [6. Bayesian phylogenetic inference and MCMC](#6-bayesian-phylogenetic-inference-and-mcmc) | 11 | 0 | 0 | 0 | 11 |
+| [7. Branch support, rooting and hypothesis testing](#7-branch-support-rooting-and-hypothesis-testing) | 12 | 0 | 0 | 0 | 12 |
+| [8. Large-scale divide-and-conquer reconstruction](#8-large-scale-divide-and-conquer-reconstruction) | 6 | 0 | 0 | 0 | 6 |
+| **All** | **99** | **0** | **0** | **2** | **97** |
 
 <!-- END catalog:summary -->
 
 ## The papers
 
-Each paper is in one family, the one its method belongs to, even when it touches others. Theory papers
-(identifiability, consistency, complexity) are listed with the methods they support, except in the
-three families of theory: the models of substitution (family 8), algebraic phylogenetics (family 9),
-and consistency under misspecified models (family 10). The scope is the estimation of a tree from
-sequences under a model of their evolution. The alignment of the sequences, and its joint estimation
-with the tree, is in [lean4-phylo-alignment](https://github.com/vltanh/lean4-phylo-alignment). Species
-trees from multilocus data are in
+Each paper is in one family, the one its method belongs to, even when it touches others. This is a
+hub of inference: the theory of a method (its consistency, its complexity, the sequence lengths it
+needs) is listed with the method, and general results are in the hubs of theory:
+[lean4-phylo-combinatorics](https://github.com/vltanh/lean4-phylo-combinatorics) for the
+combinatorics of trees, compatibility and perfect phylogeny,
+[lean4-phylo-algebraic](https://github.com/vltanh/lean4-phylo-algebraic) for invariants and the
+identifiability of substitution models, and
+[lean4-phylo-statistics](https://github.com/vltanh/lean4-phylo-statistics) for fast convergence,
+sample complexity and consistency under misspecified models. The scope is the estimation of a tree
+from sequences under a model of their evolution. The alignment of the sequences, and its joint
+estimation with the tree, is in
+[lean4-phylo-alignment](https://github.com/vltanh/lean4-phylo-alignment). Species trees from
+multilocus data are in
 [lean4-phylo-species-tree](https://github.com/vltanh/lean4-phylo-species-tree), and networks in
-[lean4-phylo-network](https://github.com/vltanh/lean4-phylo-network). The papers of families 6 and 8
-are foundations of the whole collection: their reusable results (the combinatorics of trees, and the
-models of substitution) go to the root library, and each paper's repository formalizes the rest. *Uses*
-lists the papers, of any hub, that the paper's proofs are known to use, and the other hubs whose
-library it requires. Each paper's inventory completes the list.
+[lean4-phylo-network](https://github.com/vltanh/lean4-phylo-network). The papers of family 3, the
+models of substitution, are foundations of the whole collection: their models go to the root library,
+and each paper's repository formalizes the rest. *Uses* lists the papers, of any hub, that the
+paper's proofs are known to use, and the other hubs whose library it requires. Each paper's inventory
+completes the list.
 
 <!-- BEGIN catalog:papers -->
 <!-- Generated by lean4-phylogenetics/scripts/status.py readme --write. Do not edit. -->
 
-### 1. Maximum likelihood and substitution-model identifiability
+### 1. Maximum likelihood and tree-search algorithms
 
 Priority: highest.
 
 | # | Paper | Kind | Repository | Status | Uses |
 | ---: | --- | --- | --- | --- | --- |
-| 1 | Felsenstein (1981), [Evolutionary Trees from DNA Sequences: A Maximum Likelihood Approach](https://doi.org/10.1007/BF01734359) | method | `lean4-felsenstein1981` | to do | - |
-| 2 | Steel (1994), [Recovering a Tree from the Leaf Colourations It Generates Under a Markov Model](https://doi.org/10.1016/0893-9659(94)90024-8) | theory | `lean4-steel1994` | to do | - |
-| 3 | Chang (1996), [Full Reconstruction of Markov Models on Evolutionary Trees: Identifiability and Consistency](https://doi.org/10.1016/S0025-5564(96)00075-2) | theory | `lean4-chang1996` | to do | - |
-| 4 | Guindon, Gascuel (2003), [PhyML: A Simple, Fast, and Accurate Algorithm to Estimate Large Phylogenies by Maximum Likelihood](https://doi.org/10.1080/10635150390235520) | method | `lean4-phyml` | to do | - |
-| 5 | Roch (2006), [A Short Proof That Phylogenetic Tree Reconstruction by Maximum Likelihood Is Hard](https://doi.org/10.1109/TCBB.2006.4) | theory | `lean4-roch2006` | to do | - |
-| 6 | Stamatakis (2006), [RAxML-VI-HPC: Maximum Likelihood-Based Phylogenetic Analyses with Thousands of Taxa and Mixed Models](https://doi.org/10.1093/bioinformatics/btl446) | method | `lean4-raxml` | to do | - |
-| 7 | Allman, Rhodes (2008), [Identifying Evolutionary Trees and Substitution Parameters for the General Markov Model with Invariable Sites](https://doi.org/10.1016/j.mbs.2007.09.001) | theory | `lean4-allman2008` | to do | - |
-| 8 | Price, Dehal, Arkin (2010), [FastTree 2: Approximately Maximum-Likelihood Trees for Large Alignments](https://doi.org/10.1371/journal.pone.0009490) | method | `lean4-fasttree2` | to do | - |
-| 9 | Nguyen et al. (2015), [IQ-TREE: A Fast and Effective Stochastic Algorithm for Estimating Maximum-Likelihood Phylogenies](https://doi.org/10.1093/molbev/msu300) | method | `lean4-iqtree` | to do | - |
-| 10 | Kozlov et al. (2019), [RAxML-NG: A Fast, Scalable and User-Friendly Tool for Maximum Likelihood Phylogenetic Inference](https://doi.org/10.1093/bioinformatics/btz305) | method | `lean4-raxml-ng` | to do | RAxML |
-| 11 | Minh et al. (2020), [IQ-TREE 2: New Models and Efficient Methods for Phylogenetic Inference in the Genomic Era](https://doi.org/10.1093/molbev/msaa015) | method | `lean4-iqtree2` | to do | IQ-TREE |
-| 12 | Lewis (1998), [A Genetic Algorithm for Maximum-Likelihood Phylogeny Inference Using Nucleotide Sequence Data](https://doi.org/10.1093/oxfordjournals.molbev.a025924) | method | `lean4-lewis1998` | to do | - |
-| 13 | Chor, Tuller (2005), [Maximum Likelihood of Evolutionary Trees: Hardness and Approximation](https://doi.org/10.1093/bioinformatics/bti1027) | theory | `lean4-chor2005` | to do | - |
-| 14 | Hordijk, Gascuel (2005), [Improving the Efficiency of SPR Moves in Phylogenetic Tree Search Methods Based on Maximum Likelihood](https://doi.org/10.1093/bioinformatics/bti713) | theory and algorithm | `lean4-hordijk2005` | to do | - |
-| 15 | Price, Dehal, Arkin (2009), [FastTree: Computing Large Minimum Evolution Trees with Profiles Instead of a Distance Matrix](https://doi.org/10.1093/molbev/msp077) | method | `lean4-fasttree` | to do | - |
-| 16 | Guindon et al. (2010), [New Algorithms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 3.0](https://doi.org/10.1093/sysbio/syq010) | method | `lean4-phyml3` | to do | PhyML |
-| 17 | Stamatakis (2014), [RAxML Version 8: A Tool for Phylogenetic Analysis and Post-Analysis of Large Phylogenies](https://doi.org/10.1093/bioinformatics/btu033) | method | `lean4-raxml8` | to do | RAxML |
-| 18 | Kozlov, Aberer, Stamatakis (2015), [ExaML Version 3: A Tool for Phylogenomic Analyses on Supercomputers](https://doi.org/10.1093/bioinformatics/btv184) | method | `lean4-examl3` | to do | - |
-| 19 | Wong et al. (2026), [IQ-TREE 3: Phylogenomic Inference Software Using Complex Evolutionary Models](https://doi.org/10.1093/molbev/msag117) | method | `lean4-iqtree3` | to do | IQ-TREE 2 |
+| 1 | Felsenstein (1973), [Maximum-Likelihood Estimation of Evolutionary Trees from Continuous Characters](https://pmc.ncbi.nlm.nih.gov/articles/PMC1762641/) | theory and algorithm | `lean4-felsenstein1973` | to do | - |
+| 2 | Felsenstein (1981), [Evolutionary Trees from DNA Sequences: A Maximum Likelihood Approach](https://doi.org/10.1007/BF01734359) | method | `lean4-felsenstein1981` | to do | - |
+| 3 | Rogers (1997), [On the Consistency of Maximum Likelihood Estimation of Phylogenetic Trees from Nucleotide Sequences](https://doi.org/10.2307/2413629) | theory | `lean4-rogers1997` | to do | - |
+| 4 | Lewis (1998), [A Genetic Algorithm for Maximum-Likelihood Phylogeny Inference Using Nucleotide Sequence Data](https://doi.org/10.1093/oxfordjournals.molbev.a025924) | method | `lean4-lewis1998` | to do | - |
+| 5 | Guindon, Gascuel (2003), [PhyML: A Simple, Fast, and Accurate Algorithm to Estimate Large Phylogenies by Maximum Likelihood](https://doi.org/10.1080/10635150390235520) | method | `lean4-phyml` | to do | - |
+| 6 | Chor, Tuller (2005), [Maximum Likelihood of Evolutionary Trees: Hardness and Approximation](https://doi.org/10.1093/bioinformatics/bti1027) | theory | `lean4-chor2005` | to do | - |
+| 7 | Hordijk, Gascuel (2005), [Improving the Efficiency of SPR Moves in Phylogenetic Tree Search Methods Based on Maximum Likelihood](https://doi.org/10.1093/bioinformatics/bti713) | theory and algorithm | `lean4-hordijk2005` | to do | - |
+| 8 | Roch (2006), [A Short Proof That Phylogenetic Tree Reconstruction by Maximum Likelihood Is Hard](https://doi.org/10.1109/TCBB.2006.4) | theory | `lean4-roch2006` | to do | - |
+| 9 | Stamatakis (2006), [RAxML-VI-HPC: Maximum Likelihood-Based Phylogenetic Analyses with Thousands of Taxa and Mixed Models](https://doi.org/10.1093/bioinformatics/btl446) | method | `lean4-raxml` | to do | - |
+| 10 | Price, Dehal, Arkin (2009), [FastTree: Computing Large Minimum Evolution Trees with Profiles Instead of a Distance Matrix](https://doi.org/10.1093/molbev/msp077) | method | `lean4-fasttree` | to do | - |
+| 11 | Price, Dehal, Arkin (2010), [FastTree 2: Approximately Maximum-Likelihood Trees for Large Alignments](https://doi.org/10.1371/journal.pone.0009490) | method | `lean4-fasttree2` | to do | - |
+| 12 | Guindon et al. (2010), [New Algorithms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 3.0](https://doi.org/10.1093/sysbio/syq010) | method | `lean4-phyml3` | to do | PhyML |
+| 13 | Stamatakis (2014), [RAxML Version 8: A Tool for Phylogenetic Analysis and Post-Analysis of Large Phylogenies](https://doi.org/10.1093/bioinformatics/btu033) | method | `lean4-raxml8` | to do | RAxML |
+| 14 | Kozlov, Aberer, Stamatakis (2015), [ExaML Version 3: A Tool for Phylogenomic Analyses on Supercomputers](https://doi.org/10.1093/bioinformatics/btv184) | method | `lean4-examl3` | to do | - |
+| 15 | Nguyen et al. (2015), [IQ-TREE: A Fast and Effective Stochastic Algorithm for Estimating Maximum-Likelihood Phylogenies](https://doi.org/10.1093/molbev/msu300) | method | `lean4-iqtree` | to do | - |
+| 16 | Kozlov et al. (2019), [RAxML-NG: A Fast, Scalable and User-Friendly Tool for Maximum Likelihood Phylogenetic Inference](https://doi.org/10.1093/bioinformatics/btz305) | method | `lean4-raxml-ng` | to do | RAxML |
+| 17 | Minh et al. (2020), [IQ-TREE 2: New Models and Efficient Methods for Phylogenetic Inference in the Genomic Era](https://doi.org/10.1093/molbev/msaa015) | method | `lean4-iqtree2` | to do | IQ-TREE |
+| 18 | Wong et al. (2026), [IQ-TREE 3: Phylogenomic Inference Software Using Complex Evolutionary Models](https://doi.org/10.1093/molbev/msag117) | method | `lean4-iqtree3` | to do | IQ-TREE 2 |
 
 ### 2. Distance-based inference and minimum evolution
 
 | # | Paper | Kind | Repository | Status | Uses |
 | ---: | --- | --- | --- | --- | --- |
-| 1 | Buneman (1971), [The Recovery of Trees from Measures of Dissimilarity](https://homepages.inf.ed.ac.uk/opb/homepagefiles/phylogeny-scans/manuscripts.pdf) | theory | `lean4-buneman1971` | partly covered: lean4-phylogenetics | - |
-| 2 | Saitou, Nei (1987), [The Neighbor-Joining Method: A New Method for Reconstructing Phylogenetic Trees](https://doi.org/10.1093/oxfordjournals.molbev.a040454) | method | `lean4-neighbor-joining` | partly covered: lean4-phylogenetics | - |
-| 3 | Studier, Keppler (1988), [A Note on the Neighbor-Joining Algorithm of Saitou and Nei](https://doi.org/10.1093/oxfordjournals.molbev.a040527) | theory and algorithm | `lean4-studier1988` | partly covered: lean4-phylogenetics, lean4-tinnik | NJ |
-| 4 | Lockhart et al. (1994), [Recovering Evolutionary Trees Under a More Realistic Model of Sequence Evolution (LogDet)](https://doi.org/10.1093/oxfordjournals.molbev.a040136) | method | `lean4-lockhart1994` | to do | - |
-| 5 | Gascuel (1997), [BIONJ: An Improved Version of the NJ Algorithm Based on a Simple Model of Sequence Data](https://doi.org/10.1093/oxfordjournals.molbev.a025808) | method | `lean4-bionj` | to do | NJ |
-| 6 | Atteson (1999), [The Performance of Neighbor-Joining Methods of Phylogenetic Reconstruction](https://doi.org/10.1007/PL00008277) | theory | `lean4-atteson1999` | to do | - |
-| 7 | Pauplin (2000), [Direct Calculation of a Tree Length Using a Distance Matrix](https://doi.org/10.1007/s002390010065) | theory | `lean4-pauplin2000` | to do | - |
-| 8 | Desper, Gascuel (2002), [Fast and Accurate Phylogeny Reconstruction Algorithms Based on the Minimum-Evolution Principle](https://doi.org/10.1089/106652702761034136) | method | `lean4-desper2002` | to do | - |
-| 9 | Desper, Gascuel (2004), [Theoretical Foundation of the Balanced Minimum Evolution Method and Its Relationship to Weighted Least-Squares Tree Fitting](https://doi.org/10.1093/molbev/msh049) | theory | `lean4-desper2004` | to do | - |
-| 10 | Lefort, Desper, Gascuel (2015), [FastME 2.0: A Comprehensive, Accurate, and Fast Distance-Based Phylogeny Inference Program](https://doi.org/10.1093/molbev/msv150) | method | `lean4-fastme2` | to do | Desper, Gascuel 2002 |
-| 11 | Sokal, Michener (1958), [A Statistical Method for Evaluating Systematic Relationships](https://www.biodiversitylibrary.org/part/385476) | method | `lean4-sokal1958` | to do | - |
-| 12 | Fitch, Margoliash (1967), [Construction of Phylogenetic Trees: A Method Based on Mutation Distances as Estimated from Cytochrome c Sequences Is of General Applicability](https://doi.org/10.1126/science.155.3760.279) | method | `lean4-fitch1967` | to do | - |
-| 13 | Lake (1994), [Reconstructing Evolutionary Trees from DNA and Protein Sequences: Paralinear Distances](https://doi.org/10.1073/pnas.91.4.1455) | theory and algorithm | `lean4-lake1994` | to do | - |
-| 14 | Farach, Kannan, Warnow (1995), [A Robust Model for Finding Optimal Evolutionary Trees](https://doi.org/10.1007/BF01188585) | theory and algorithm | `lean4-farach1995` | to do | - |
-| 15 | Bruno, Socci, Halpern (2000), [Weighted Neighbor Joining: A Likelihood-Based Approach to Distance-Based Phylogeny Reconstruction (Weighbor)](https://doi.org/10.1093/oxfordjournals.molbev.a026231) | method | `lean4-weighbor` | to do | NJ |
-| 16 | Gascuel, Steel (2006), [Neighbor-Joining Revealed](https://doi.org/10.1093/molbev/msl072) | theory | `lean4-gascuel2006` | to do | NJ |
-| 17 | Eickmeyer et al. (2008), [On the Optimality of the Neighbor-Joining Algorithm](https://doi.org/10.1186/1748-7188-3-5) | theory | `lean4-eickmeyer2008` | to do | NJ |
-| 18 | Elias, Lagergren (2009), [Fast Neighbor Joining](https://doi.org/10.1016/j.tcs.2008.12.040) | theory and algorithm | `lean4-elias2009` | to do | NJ |
-| 19 | Mihaescu, Levy, Pachter (2009), [Why Neighbor-Joining Works](https://doi.org/10.1007/s00453-007-9116-4) | theory | `lean4-mihaescu2009` | to do | NJ |
-| 20 | Wheeler (2009), [Large-Scale Neighbor-Joining with NINJA](https://doi.org/10.1007/978-3-642-04241-6_31) | method | `lean4-ninja` | to do | NJ |
-| 21 | Fiorini, Joret (2012), [Approximating the Balanced Minimum Evolution Problem](https://doi.org/10.1016/j.orl.2011.10.003) | theory and algorithm | `lean4-fiorini2012` | to do | - |
-| 22 | Clausen (2023), [Scaling Neighbor Joining to One Million Taxa with Dynamic and Heuristic Neighbor Joining](https://doi.org/10.1093/bioinformatics/btac774) | theory and algorithm | `lean4-clausen2023` | to do | NJ |
+| 1 | Sokal, Michener (1958), [A Statistical Method for Evaluating Systematic Relationships](https://www.biodiversitylibrary.org/part/385476) | method | `lean4-sokal1958` | to do | - |
+| 2 | Fitch, Margoliash (1967), [Construction of Phylogenetic Trees: A Method Based on Mutation Distances as Estimated from Cytochrome c Sequences Is of General Applicability](https://doi.org/10.1126/science.155.3760.279) | method | `lean4-fitch1967` | to do | - |
+| 3 | Saitou, Nei (1987), [The Neighbor-Joining Method: A New Method for Reconstructing Phylogenetic Trees](https://doi.org/10.1093/oxfordjournals.molbev.a040454) | method | `lean4-neighbor-joining` | partly covered: lean4-phylogenetics | - |
+| 4 | Studier, Keppler (1988), [A Note on the Neighbor-Joining Algorithm of Saitou and Nei](https://doi.org/10.1093/oxfordjournals.molbev.a040527) | theory and algorithm | `lean4-studier1988` | partly covered: lean4-phylogenetics, lean4-tinnik | NJ |
+| 5 | Lake (1994), [Reconstructing Evolutionary Trees from DNA and Protein Sequences: Paralinear Distances](https://doi.org/10.1073/pnas.91.4.1455) | theory and algorithm | `lean4-lake1994` | to do | - |
+| 6 | Lockhart et al. (1994), [Recovering Evolutionary Trees Under a More Realistic Model of Sequence Evolution (LogDet)](https://doi.org/10.1093/oxfordjournals.molbev.a040136) | method | `lean4-lockhart1994` | to do | - |
+| 7 | Farach, Kannan, Warnow (1995), [A Robust Model for Finding Optimal Evolutionary Trees](https://doi.org/10.1007/BF01188585) | theory and algorithm | `lean4-farach1995` | to do | - |
+| 8 | Gascuel (1997), [BIONJ: An Improved Version of the NJ Algorithm Based on a Simple Model of Sequence Data](https://doi.org/10.1093/oxfordjournals.molbev.a025808) | method | `lean4-bionj` | to do | NJ |
+| 9 | Atteson (1999), [The Performance of Neighbor-Joining Methods of Phylogenetic Reconstruction](https://doi.org/10.1007/PL00008277) | theory | `lean4-atteson1999` | to do | - |
+| 10 | Pauplin (2000), [Direct Calculation of a Tree Length Using a Distance Matrix](https://doi.org/10.1007/s002390010065) | theory | `lean4-pauplin2000` | to do | - |
+| 11 | Bruno, Socci, Halpern (2000), [Weighted Neighbor Joining: A Likelihood-Based Approach to Distance-Based Phylogeny Reconstruction (Weighbor)](https://doi.org/10.1093/oxfordjournals.molbev.a026231) | method | `lean4-weighbor` | to do | NJ |
+| 12 | Desper, Gascuel (2002), [Fast and Accurate Phylogeny Reconstruction Algorithms Based on the Minimum-Evolution Principle](https://doi.org/10.1089/106652702761034136) | method | `lean4-desper2002` | to do | - |
+| 13 | Desper, Gascuel (2004), [Theoretical Foundation of the Balanced Minimum Evolution Method and Its Relationship to Weighted Least-Squares Tree Fitting](https://doi.org/10.1093/molbev/msh049) | theory | `lean4-desper2004` | to do | - |
+| 14 | Gascuel, Steel (2006), [Neighbor-Joining Revealed](https://doi.org/10.1093/molbev/msl072) | theory | `lean4-gascuel2006` | to do | NJ |
+| 15 | Eickmeyer et al. (2008), [On the Optimality of the Neighbor-Joining Algorithm](https://doi.org/10.1186/1748-7188-3-5) | theory | `lean4-eickmeyer2008` | to do | NJ |
+| 16 | Elias, Lagergren (2009), [Fast Neighbor Joining](https://doi.org/10.1016/j.tcs.2008.12.040) | theory and algorithm | `lean4-elias2009` | to do | NJ |
+| 17 | Mihaescu, Levy, Pachter (2009), [Why Neighbor-Joining Works](https://doi.org/10.1007/s00453-007-9116-4) | theory | `lean4-mihaescu2009` | to do | NJ |
+| 18 | Wheeler (2009), [Large-Scale Neighbor-Joining with NINJA](https://doi.org/10.1007/978-3-642-04241-6_31) | method | `lean4-ninja` | to do | NJ |
+| 19 | Fiorini, Joret (2012), [Approximating the Balanced Minimum Evolution Problem](https://doi.org/10.1016/j.orl.2011.10.003) | theory and algorithm | `lean4-fiorini2012` | to do | - |
+| 20 | Lefort, Desper, Gascuel (2015), [FastME 2.0: A Comprehensive, Accurate, and Fast Distance-Based Phylogeny Inference Program](https://doi.org/10.1093/molbev/msv150) | method | `lean4-fastme2` | to do | Desper, Gascuel 2002 |
+| 21 | Clausen (2023), [Scaling Neighbor Joining to One Million Taxa with Dynamic and Heuristic Neighbor Joining](https://doi.org/10.1093/bioinformatics/btac774) | theory and algorithm | `lean4-clausen2023` | to do | NJ |
+| 22 | Kim et al. (2026), [Practical Phylogenetic Usage of Theoretical Advances in Distance-Based Tree Learning](https://doi.org/10.1186/s12859-026-06488-y) | method | `lean4-kim2026` | to do | - |
 
-### 3. Maximum parsimony and character-based inference
-
-Priority: high.
-
-| # | Paper | Kind | Repository | Status | Uses |
-| ---: | --- | --- | --- | --- | --- |
-| 1 | Fitch (1971), [Toward Defining the Course of Evolution: Minimum Change for a Specific Tree Topology](https://doi.org/10.2307/2412116) | theory and algorithm | `lean4-fitch1971` | to do | - |
-| 2 | Felsenstein (1978), [Cases in Which Parsimony or Compatibility Methods Will Be Positively Misleading](https://doi.org/10.2307/2412923) | theory | `lean4-felsenstein1978` | to do | - |
-| 3 | Tuffley, Steel (1997), [Links Between Maximum Likelihood and Maximum Parsimony Under a Simple Model of Site Substitution](https://doi.org/10.1007/BF02459467) | theory | `lean4-tuffley1997` | to do | - |
-| 4 | Foulds, Graham (1982), [The Steiner Problem in Phylogeny Is NP-Complete](https://doi.org/10.1016/S0196-8858(82)80004-3) | theory | `lean4-foulds1982` | to do | - |
-| 5 | Gusfield (1991), [Efficient Algorithms for Inferring Evolutionary Trees](https://doi.org/10.1002/net.3230210104) | theory and algorithm | `lean4-gusfield1991` | to do | - |
-| 6 | Kannan, Warnow (1992), [Triangulating 3-Colored Graphs](https://doi.org/10.1137/0405019) | theory and algorithm | `lean4-kannan1992` | to do | - |
-| 7 | Bodlaender, Fellows, Warnow (1992), [Two Strikes Against Perfect Phylogeny](https://doi.org/10.1007/3-540-55719-9_80) | theory | `lean4-bodlaender1992` | to do | - |
-| 8 | Kannan, Warnow (1994), [Inferring Evolutionary History from DNA Sequences](https://doi.org/10.1137/S0097539791222171) | theory and algorithm | `lean4-kannan1994` | to do | - |
-| 9 | Warnow (1994), [Tree Compatibility and Inferring Evolutionary History](https://doi.org/10.1006/jagm.1994.1018) | theory and algorithm | `lean4-warnow1994` | to do | - |
-| 10 | McMorris, Warnow, Wimer (1994), [Triangulating Vertex-Colored Graphs](https://doi.org/10.1137/S0895480192229273) | theory and algorithm | `lean4-mcmorris1994` | to do | - |
-| 11 | Agarwala, Fernández-Baca (1994), [A Polynomial-Time Algorithm for the Perfect Phylogeny Problem When the Number of Character States Is Fixed](https://doi.org/10.1137/S0097539793244587) | theory and algorithm | `lean4-agarwala1994` | to do | - |
-| 12 | Kannan, Warnow (1997), [A Fast Algorithm for the Computation and Enumeration of Perfect Phylogenies](https://doi.org/10.1137/S0097539794279067) | theory and algorithm | `lean4-kannan1997` | to do | - |
-| 13 | Bodlaender et al. (2000), [The Hardness of Perfect Phylogeny, Feasible Register Assignment and Other Problems on Thin Colored Graphs](https://doi.org/10.1016/S0304-3975(98)00342-9) | theory | `lean4-bodlaender2000` | to do | - |
-
-### 4. Bayesian phylogenetic inference
-
-| # | Paper | Kind | Repository | Status | Uses |
-| ---: | --- | --- | --- | --- | --- |
-| 1 | Rannala, Yang (1996), [Probability Distribution of Molecular Evolutionary Trees: A New Method of Phylogenetic Inference](https://doi.org/10.1007/BF02338839) | theory and algorithm | `lean4-rannala1996` | to do | - |
-| 2 | Mau, Newton, Larget (1999), [Bayesian Phylogenetic Inference via Markov Chain Monte Carlo Methods](https://doi.org/10.1111/j.0006-341X.1999.00001.x) | method | `lean4-mau1999` | to do | - |
-| 3 | Huelsenbeck, Ronquist (2001), [MrBayes: Bayesian Inference of Phylogenetic Trees](https://doi.org/10.1093/bioinformatics/17.8.754) | method | `lean4-mrbayes` | to do | - |
-| 4 | Drummond, Rambaut (2007), [BEAST: Bayesian Evolutionary Analysis by Sampling Trees](https://doi.org/10.1186/1471-2148-7-214) | method | `lean4-beast` | to do | - |
-| 5 | Larget, Simon (1999), [Markov Chain Monte Carlo Algorithms for the Bayesian Analysis of Phylogenetic Trees](https://doi.org/10.1093/oxfordjournals.molbev.a026160) | theory and algorithm | `lean4-larget1999` | to do | - |
-| 6 | Mossel, Vigoda (2005), [Phylogenetic MCMC Algorithms Are Misleading on Mixtures of Trees](https://doi.org/10.1126/science.1115493) | theory | `lean4-mossel2005` | to do | - |
-| 7 | Lakner et al. (2008), [Efficiency of Markov Chain Monte Carlo Tree Proposals in Bayesian Phylogenetics](https://doi.org/10.1080/10635150801886156) | theory and algorithm | `lean4-lakner2008` | to do | - |
-| 8 | Ronquist et al. (2012), [MrBayes 3.2: Efficient Bayesian Phylogenetic Inference and Model Choice Across a Large Model Space](https://doi.org/10.1093/sysbio/sys029) | method | `lean4-mrbayes3-2` | to do | MrBayes |
-| 9 | Bouckaert et al. (2014), [BEAST 2: A Software Platform for Bayesian Evolutionary Analysis](https://doi.org/10.1371/journal.pcbi.1003537) | method | `lean4-beast2` | to do | BEAST |
-| 10 | Whidden, Matsen (2015), [Quantifying MCMC Exploration of Phylogenetic Tree Space](https://doi.org/10.1093/sysbio/syv006) | theory and algorithm | `lean4-whidden2015` | to do | - |
-| 11 | Höhna et al. (2016), [RevBayes: Bayesian Phylogenetic Inference Using Graphical Models and an Interactive Model-Specification Language](https://doi.org/10.1093/sysbio/syw021) | method | `lean4-revbayes` | to do | - |
-
-### 5. Branch support, rooting and statistical hypothesis testing
-
-| # | Paper | Kind | Repository | Status | Uses |
-| ---: | --- | --- | --- | --- | --- |
-| 1 | Felsenstein (1985), [Confidence Limits on Phylogenies: An Approach Using the Bootstrap](https://doi.org/10.1111/j.1558-5646.1985.tb00420.x) | method | `lean4-felsenstein1985` | to do | - |
-| 2 | Shimodaira (2002), [An Approximately Unbiased Test of Phylogenetic Tree Selection](https://doi.org/10.1080/10635150290069913) | method | `lean4-shimodaira2002` | to do | - |
-| 3 | Minh, Nguyen, von Haeseler (2013), [Ultrafast Approximation for Phylogenetic Bootstrap](https://doi.org/10.1093/molbev/mst024) | method | `lean4-minh2013` | to do | - |
-| 4 | Kishino, Hasegawa (1989), [Evaluation of the Maximum Likelihood Estimate of the Evolutionary Tree Topologies from DNA Sequence Data, and the Branching Order in Hominoidea](https://doi.org/10.1007/BF02100115) | theory and algorithm | `lean4-kishino1989` | to do | - |
-| 5 | Efron, Halloran, Holmes (1996), [Bootstrap Confidence Levels for Phylogenetic Trees](https://doi.org/10.1073/pnas.93.14.7085) | theory | `lean4-efron1996` | to do | Felsenstein 1985 |
-| 6 | Shimodaira, Hasegawa (1999), [Multiple Comparisons of Log-Likelihoods with Applications to Phylogenetic Inference](https://doi.org/10.1093/oxfordjournals.molbev.a026201) | theory and algorithm | `lean4-shimodaira1999` | to do | - |
-| 7 | Huelsenbeck, Bollback, Levine (2002), [Inferring the Root of a Phylogenetic Tree](https://doi.org/10.1080/106351502753475862) | method | `lean4-huelsenbeck2002` | to do | - |
-| 8 | Yap, Speed (2005), [Rooting a Phylogenetic Tree with Nonreversible Substitution Models](https://doi.org/10.1186/1471-2148-5-2) | method | `lean4-yap2005` | to do | - |
-| 9 | Anisimova, Gascuel (2006), [Approximate Likelihood-Ratio Test for Branches: A Fast, Accurate, and Powerful Alternative](https://doi.org/10.1080/10635150600755453) | theory and algorithm | `lean4-anisimova2006` | to do | - |
-| 10 | Hoang et al. (2018), [UFBoot2: Improving the Ultrafast Bootstrap Approximation](https://doi.org/10.1093/molbev/msx281) | method | `lean4-ufboot2` | to do | Minh, Nguyen, von Haeseler 2013 |
-| 11 | Naser-Khdour, Minh, Lanfear (2022), [Assessing Confidence in Root Placement on Phylogenies: An Empirical Study Using Nonreversible Models for Mammals](https://doi.org/10.1093/sysbio/syab067) | method | `lean4-naserkhdour2022` | to do | - |
-
-### 6. Supporting combinatorial reconstruction theory
-
-| # | Paper | Kind | Repository | Status | Uses |
-| ---: | --- | --- | --- | --- | --- |
-| 1 | Aho et al. (1981), [Inferring a Tree from Lowest Common Ancestors with an Application to the Optimization of Relational Expressions (BUILD)](https://doi.org/10.1137/0210030) | theory and algorithm | `lean4-aho1981` | to do | - |
-| 2 | Robinson, Foulds (1981), [Comparison of Phylogenetic Trees](https://doi.org/10.1016/0025-5564(81)90043-2) | theory | `lean4-robinson1981` | to do | - |
-| 3 | Steel (1992), [The Complexity of Reconstructing Trees from Qualitative Characters and Subtrees](https://doi.org/10.1007/BF02618470) | theory | `lean4-steel1992` | partly covered: lean4-phylogenetics | - |
-
-### 7. Fast-converging phylogenetic reconstruction
-
-Priority: highest.
-
-| # | Paper | Kind | Repository | Status | Uses |
-| ---: | --- | --- | --- | --- | --- |
-| 1 | Erdős, Steel, Székely, Warnow (1999), [A Few Logs Suffice to Build (Almost) All Trees (I)](https://doi.org/10.1002/(SICI)1098-2418(199903)14:2%3C153::AID-RSA3%3E3.0.CO;2-R) | theory and algorithm | `lean4-erdos1999-part1` | to do | - |
-| 2 | Erdős, Steel, Székely, Warnow (1999), [A Few Logs Suffice to Build (Almost) All Trees, Part II](https://doi.org/10.1016/S0304-3975(99)00028-6) | theory and algorithm | `lean4-erdos1999-part2` | to do | Erdős, Steel, Székely, Warnow 1999 |
-| 3 | Huson, Nettles, Warnow (1999), [Disk-Covering, a Fast-Converging Method for Phylogenetic Tree Reconstruction](https://doi.org/10.1089/106652799318337) | theory and algorithm | `lean4-dcm` | to do | - |
-| 4 | Huson, Vawter, Warnow (1999), [Solving Large Scale Phylogenetic Problems Using DCM-2](https://pubmed.ncbi.nlm.nih.gov/10786294/) | method | `lean4-dcm2` | to do | DCM |
-| 5 | Huson et al. (1999), [Hybrid Tree Reconstruction Methods](https://doi.org/10.1145/347792.347812) | method | `lean4-huson1999-hybrid` | to do | - |
-| 6 | Warnow, Moret, St. John (2001), [Absolute Convergence: True Trees from Short Sequences](https://dl.acm.org/doi/10.5555/365411.365443) | theory and algorithm | `lean4-warnow2001` | to do | - |
-| 7 | Nakhleh et al. (2001), [Designing Fast Converging Phylogenetic Methods](https://doi.org/10.1093/bioinformatics/17.suppl_1.s190) | theory and algorithm | `lean4-nakhleh2001` | to do | - |
-| 8 | Mossel (2004), [Phase Transitions in Phylogeny](https://doi.org/10.1090/S0002-9947-03-03382-8) | theory | `lean4-mossel2004` | to do | - |
-| 9 | Mossel (2007), [Distorted Metrics on Trees and Phylogenetic Forests](https://doi.org/10.1109/TCBB.2007.1010) | theory and algorithm | `lean4-mossel2007` | to do | - |
-| 10 | Roch (2010), [Toward Extracting All Phylogenetic Information from Matrices of Evolutionary Distances](https://doi.org/10.1126/science.1182300) | theory and algorithm | `lean4-roch2010` | to do | - |
-| 11 | Daskalakis, Mossel, Roch (2011), [Evolutionary Trees and the Ising Model on the Bethe Lattice: A Proof of Steel's Conjecture](https://doi.org/10.1007/s00440-009-0246-2) | theory and algorithm | `lean4-daskalakis2011` | to do | - |
-| 12 | Mossel, Roch, Sly (2011), [On the Inference of Large Phylogenies with Long Branches: How Long Is Too Long?](https://doi.org/10.1007/s11538-010-9584-6) | theory and algorithm | `lean4-mossel2011` | to do | - |
-| 13 | Gronau, Moran, Snir (2012), [Fast and Reliable Reconstruction of Phylogenetic Trees with Indistinguishable Edges](https://doi.org/10.1002/rsa.20372) | theory and algorithm | `lean4-gronau2012` | to do | - |
-| 14 | Roch, Sly (2017), [Phase Transition in the Sample Complexity of Likelihood-Based Phylogeny Inference](https://doi.org/10.1007/s00440-017-0793-x) | theory | `lean4-roch2017` | to do | - |
-| 15 | Kim et al. (2026), [Practical Phylogenetic Usage of Theoretical Advances in Distance-Based Tree Learning](https://doi.org/10.1186/s12859-026-06488-y) | method | `lean4-kim2026` | to do | - |
-
-### 8. Molecular substitution models
+### 3. Molecular substitution models
 
 Priority: foundational.
 
@@ -229,49 +146,13 @@ Priority: foundational.
 | 17 | Le, Gascuel (2008), [An Improved General Amino Acid Replacement Matrix](https://doi.org/10.1093/molbev/msn067) | method | `lean4-le2008` | to do | - |
 | 18 | Kolaczkowski, Thornton (2008), [A Mixed Branch Length Model of Heterotachy Improves Phylogenetic Accuracy](https://doi.org/10.1093/molbev/msn042) | method | `lean4-kolaczkowski2008` | to do | - |
 
-### 9. Algebraic phylogenetics, invariants and identifiability
-
-Priority: highest.
-
-| # | Paper | Kind | Repository | Status | Uses |
-| ---: | --- | --- | --- | --- | --- |
-| 1 | Lake (1987), [A Rate-Independent Technique for Analysis of Nucleic Acid Sequences: Evolutionary Parsimony](https://doi.org/10.1093/oxfordjournals.molbev.a040433) | theory and algorithm | `lean4-lake1987` | to do | - |
-| 2 | Cavender, Felsenstein (1987), [Invariants of Phylogenies in a Simple Case with Discrete States](https://doi.org/10.1007/BF01890075) | theory | `lean4-cavender1987` | to do | - |
-| 3 | Evans, Speed (1993), [Invariants of Some Probability Models Used in Phylogenetic Inference](https://doi.org/10.1214/aos/1176349030) | theory | `lean4-evans1993` | to do | - |
-| 4 | Székely, Steel, Erdős (1993), [Fourier Calculus on Evolutionary Trees](https://doi.org/10.1006/aama.1993.1011) | theory | `lean4-szekely1993` | to do | - |
-| 5 | Hendy, Penny (1993), [Spectral Analysis of Phylogenetic Data](https://doi.org/10.1007/BF02638451) | theory and algorithm | `lean4-hendy1993` | to do | - |
-| 6 | Allman, Rhodes (2003), [Phylogenetic Invariants for the General Markov Model of Sequence Mutation](https://doi.org/10.1016/j.mbs.2003.08.004) | theory | `lean4-allman2003` | to do | - |
-| 7 | Allman, Rhodes (2004), [Quartets and Parameter Recovery for the General Markov Model of Sequence Mutation](https://doi.org/10.1155/S1687120004020283) | theory | `lean4-allman2004` | to do | - |
-| 8 | Eriksson (2005), [Tree Construction Using Singular Value Decomposition](https://doi.org/10.1017/CBO9780511610684.023) | theory and algorithm | `lean4-eriksson2005` | to do | - |
-| 9 | Allman, Rhodes (2006), [The Identifiability of Tree Topology for Phylogenetic Models, Including Covarion and Mixture Models](https://doi.org/10.1089/cmb.2006.13.1101) | theory | `lean4-allman2006` | to do | - |
-| 10 | Casanellas, Fernández-Sánchez (2007), [Performance of a New Invariants Method on Homogeneous and Nonhomogeneous Quartet Trees](https://doi.org/10.1093/molbev/msl153) | method | `lean4-casanellas2007` | to do | - |
-| 11 | Allman, Rhodes (2008), [Phylogenetic Ideals and Varieties for the General Markov Model](https://doi.org/10.1016/j.aam.2006.10.002) | theory | `lean4-allman2008-ideals` | to do | - |
-| 12 | Allman, Ané, Rhodes (2008), [Identifiability of a Markovian Model of Molecular Evolution with Gamma-Distributed Rates](https://doi.org/10.1239/aap/1208358894) | theory | `lean4-allman2008-gamma` | to do | - |
-| 13 | Allman et al. (2011), [Identifiability of Two-Tree Mixtures for Group-Based Models](https://doi.org/10.1109/TCBB.2010.79) | theory | `lean4-allman2011-mixtures` | to do | - |
-| 14 | Rhodes, Sullivant (2012), [Identifiability of Large Phylogenetic Mixture Models](https://doi.org/10.1007/s11538-011-9672-2) | theory | `lean4-rhodes2012` | to do | - |
-| 15 | Fernández-Sánchez, Casanellas (2016), [Invariant Versus Classical Quartet Inference When Evolution Is Heterogeneous Across Sites and Lineages](https://doi.org/10.1093/sysbio/syv086) | theory and algorithm | `lean4-fernandezsanchez2016` | to do | Casanellas, Fernández-Sánchez 2007 |
-
-### 10. Statistical consistency and model misspecification
-
-| # | Paper | Kind | Repository | Status | Uses |
-| ---: | --- | --- | --- | --- | --- |
-| 1 | Felsenstein (1973), [Maximum-Likelihood Estimation of Evolutionary Trees from Continuous Characters](https://pmc.ncbi.nlm.nih.gov/articles/PMC1762641/) | theory and algorithm | `lean4-felsenstein1973` | to do | - |
-| 2 | Rogers (1997), [On the Consistency of Maximum Likelihood Estimation of Phylogenetic Trees from Nucleotide Sequences](https://doi.org/10.2307/2413629) | theory | `lean4-rogers1997` | to do | - |
-| 3 | Huelsenbeck, Hillis, Nielsen (1996), [A Likelihood-Ratio Test of Monophyly](https://doi.org/10.1093/sysbio/45.4.546) | theory and algorithm | `lean4-huelsenbeck1996` | to do | - |
-| 4 | Kolaczkowski, Thornton (2004), [Performance of Maximum Parsimony and Likelihood Phylogenetics When Evolution Is Heterogeneous](https://doi.org/10.1038/nature02917) | theory | `lean4-kolaczkowski2004` | to do | - |
-| 5 | Matsen, Steel (2007), [Phylogenetic Mixtures on a Single Tree Can Mimic a Tree of Another Topology](https://doi.org/10.1080/10635150701627304) | theory | `lean4-matsen2007` | to do | - |
-| 6 | Štefankovič, Vigoda (2007), [Phylogeny of Mixture Models: Robustness of Maximum Likelihood and Non-Identifiable Distributions](https://doi.org/10.1089/cmb.2006.0126) | theory | `lean4-stefankovic2007` | to do | - |
-| 7 | Štefankovič, Vigoda (2007), [Pitfalls of Heterogeneous Processes for Phylogenetic Reconstruction](https://doi.org/10.1080/10635150701245388) | theory | `lean4-stefankovic2007-pitfalls` | to do | - |
-| 8 | Steel (2011), [Can We Avoid "SIN" in the House of "No Common Mechanism"?](https://doi.org/10.1093/sysbio/syq069) | theory | `lean4-steel2011` | to do | - |
-| 9 | Allman, Rhodes, Sullivant (2012), [When Do Phylogenetic Mixture Models Mimic Other Phylogenetic Models?](https://doi.org/10.1093/sysbio/sys064) | theory | `lean4-allman2012` | to do | - |
-
-### 11. Substitution-model selection and model adequacy
+### 4. Substitution-model selection and adequacy
 
 | # | Paper | Kind | Repository | Status | Uses |
 | ---: | --- | --- | --- | --- | --- |
 | 1 | Goldman (1993), [Statistical Tests of Models of DNA Substitution](https://doi.org/10.1007/BF00166252) | theory and algorithm | `lean4-goldman1993` | to do | - |
-| 2 | Bollback (2002), [Bayesian Model Adequacy and Choice in Phylogenetics](https://doi.org/10.1093/oxfordjournals.molbev.a004175) | theory and algorithm | `lean4-bollback2002` | to do | - |
-| 3 | Posada, Crandall (1998), [MODELTEST: Testing the Model of DNA Substitution](https://doi.org/10.1093/bioinformatics/14.9.817) | method | `lean4-modeltest` | to do | - |
+| 2 | Posada, Crandall (1998), [MODELTEST: Testing the Model of DNA Substitution](https://doi.org/10.1093/bioinformatics/14.9.817) | method | `lean4-modeltest` | to do | - |
+| 3 | Bollback (2002), [Bayesian Model Adequacy and Choice in Phylogenetics](https://doi.org/10.1093/oxfordjournals.molbev.a004175) | theory and algorithm | `lean4-bollback2002` | to do | - |
 | 4 | Abascal, Zardoya, Posada (2005), [ProtTest: Selection of Best-Fit Models of Protein Evolution](https://doi.org/10.1093/bioinformatics/bti263) | method | `lean4-prottest` | to do | - |
 | 5 | Posada (2008), [jModelTest: Phylogenetic Model Averaging](https://doi.org/10.1093/molbev/msn083) | method | `lean4-jmodeltest` | to do | MODELTEST |
 | 6 | Lanfear et al. (2012), [PartitionFinder: Combined Selection of Partitioning Schemes and Substitution Models for Phylogenetic Analyses](https://doi.org/10.1093/molbev/mss020) | method | `lean4-partitionfinder` | to do | - |
@@ -280,14 +161,56 @@ Priority: highest.
 | 9 | Kalyaanamoorthy et al. (2017), [ModelFinder: Fast Model Selection for Accurate Phylogenetic Estimates](https://doi.org/10.1038/nmeth.4285) | method | `lean4-modelfinder` | to do | - |
 | 10 | Fabreti, Höhna (2023), [Nucleotide Substitution Model Selection Is Not Necessary for Bayesian Inference of Phylogeny with Well-Behaved Priors](https://doi.org/10.1093/sysbio/syad041) | theory and method | `lean4-fabreti2023` | to do | - |
 
-### 12. Large-scale divide-and-conquer reconstruction
+### 5. Maximum parsimony
 
 | # | Paper | Kind | Repository | Status | Uses |
 | ---: | --- | --- | --- | --- | --- |
-| 1 | Henzinger, King, Warnow (1999), [Constructing a Tree from Homeomorphic Subtrees, with Applications to Computational Evolutionary Biology](https://doi.org/10.1007/PL00009268) | theory and algorithm | `lean4-henzinger1999` | to do | - |
-| 2 | Roshan et al. (2004), [Rec-I-DCM3: A Fast Algorithmic Technique for Reconstructing Large Phylogenetic Trees](https://doi.org/10.1109/CSB.2004.1332422) | method | `lean4-rec-i-dcm3` | to do | DCM |
-| 3 | Nelesen et al. (2012), [DACTAL: Divide-and-Conquer Trees (Almost) Without Alignments](https://doi.org/10.1093/bioinformatics/bts218) | method | `lean4-dactal` | to do | - |
-| 4 | Zhang, Rao, Warnow (2019), [Constrained Incremental Tree Building: New Absolute Fast Converging Phylogeny Estimation Methods with Improved Scalability and Accuracy](https://doi.org/10.1186/s13015-019-0136-9) | theory and algorithm | `lean4-zhang2019` | to do | - |
+| 1 | Fitch (1971), [Toward Defining the Course of Evolution: Minimum Change for a Specific Tree Topology](https://doi.org/10.2307/2412116) | theory and algorithm | `lean4-fitch1971` | to do | - |
+| 2 | Tuffley, Steel (1997), [Links Between Maximum Likelihood and Maximum Parsimony Under a Simple Model of Site Substitution](https://doi.org/10.1007/BF02459467) | theory | `lean4-tuffley1997` | to do | - |
+
+### 6. Bayesian phylogenetic inference and MCMC
+
+| # | Paper | Kind | Repository | Status | Uses |
+| ---: | --- | --- | --- | --- | --- |
+| 1 | Rannala, Yang (1996), [Probability Distribution of Molecular Evolutionary Trees: A New Method of Phylogenetic Inference](https://doi.org/10.1007/BF02338839) | theory and algorithm | `lean4-rannala1996` | to do | - |
+| 2 | Mau, Newton, Larget (1999), [Bayesian Phylogenetic Inference via Markov Chain Monte Carlo Methods](https://doi.org/10.1111/j.0006-341X.1999.00001.x) | method | `lean4-mau1999` | to do | - |
+| 3 | Larget, Simon (1999), [Markov Chain Monte Carlo Algorithms for the Bayesian Analysis of Phylogenetic Trees](https://doi.org/10.1093/oxfordjournals.molbev.a026160) | theory and algorithm | `lean4-larget1999` | to do | - |
+| 4 | Huelsenbeck, Ronquist (2001), [MrBayes: Bayesian Inference of Phylogenetic Trees](https://doi.org/10.1093/bioinformatics/17.8.754) | method | `lean4-mrbayes` | to do | - |
+| 5 | Mossel, Vigoda (2005), [Phylogenetic MCMC Algorithms Are Misleading on Mixtures of Trees](https://doi.org/10.1126/science.1115493) | theory | `lean4-mossel2005` | to do | - |
+| 6 | Drummond, Rambaut (2007), [BEAST: Bayesian Evolutionary Analysis by Sampling Trees](https://doi.org/10.1186/1471-2148-7-214) | method | `lean4-beast` | to do | - |
+| 7 | Lakner et al. (2008), [Efficiency of Markov Chain Monte Carlo Tree Proposals in Bayesian Phylogenetics](https://doi.org/10.1080/10635150801886156) | theory and algorithm | `lean4-lakner2008` | to do | - |
+| 8 | Ronquist et al. (2012), [MrBayes 3.2: Efficient Bayesian Phylogenetic Inference and Model Choice Across a Large Model Space](https://doi.org/10.1093/sysbio/sys029) | method | `lean4-mrbayes3-2` | to do | MrBayes |
+| 9 | Bouckaert et al. (2014), [BEAST 2: A Software Platform for Bayesian Evolutionary Analysis](https://doi.org/10.1371/journal.pcbi.1003537) | method | `lean4-beast2` | to do | BEAST |
+| 10 | Whidden, Matsen (2015), [Quantifying MCMC Exploration of Phylogenetic Tree Space](https://doi.org/10.1093/sysbio/syv006) | theory and algorithm | `lean4-whidden2015` | to do | - |
+| 11 | Höhna et al. (2016), [RevBayes: Bayesian Phylogenetic Inference Using Graphical Models and an Interactive Model-Specification Language](https://doi.org/10.1093/sysbio/syw021) | method | `lean4-revbayes` | to do | - |
+
+### 7. Branch support, rooting and hypothesis testing
+
+| # | Paper | Kind | Repository | Status | Uses |
+| ---: | --- | --- | --- | --- | --- |
+| 1 | Felsenstein (1985), [Confidence Limits on Phylogenies: An Approach Using the Bootstrap](https://doi.org/10.1111/j.1558-5646.1985.tb00420.x) | method | `lean4-felsenstein1985` | to do | - |
+| 2 | Kishino, Hasegawa (1989), [Evaluation of the Maximum Likelihood Estimate of the Evolutionary Tree Topologies from DNA Sequence Data, and the Branching Order in Hominoidea](https://doi.org/10.1007/BF02100115) | theory and algorithm | `lean4-kishino1989` | to do | - |
+| 3 | Huelsenbeck, Hillis, Nielsen (1996), [A Likelihood-Ratio Test of Monophyly](https://doi.org/10.1093/sysbio/45.4.546) | theory and algorithm | `lean4-huelsenbeck1996` | to do | - |
+| 4 | Efron, Halloran, Holmes (1996), [Bootstrap Confidence Levels for Phylogenetic Trees](https://doi.org/10.1073/pnas.93.14.7085) | theory | `lean4-efron1996` | to do | Felsenstein 1985 |
+| 5 | Shimodaira, Hasegawa (1999), [Multiple Comparisons of Log-Likelihoods with Applications to Phylogenetic Inference](https://doi.org/10.1093/oxfordjournals.molbev.a026201) | theory and algorithm | `lean4-shimodaira1999` | to do | - |
+| 6 | Shimodaira (2002), [An Approximately Unbiased Test of Phylogenetic Tree Selection](https://doi.org/10.1080/10635150290069913) | method | `lean4-shimodaira2002` | to do | - |
+| 7 | Huelsenbeck, Bollback, Levine (2002), [Inferring the Root of a Phylogenetic Tree](https://doi.org/10.1080/106351502753475862) | method | `lean4-huelsenbeck2002` | to do | - |
+| 8 | Yap, Speed (2005), [Rooting a Phylogenetic Tree with Nonreversible Substitution Models](https://doi.org/10.1186/1471-2148-5-2) | method | `lean4-yap2005` | to do | - |
+| 9 | Anisimova, Gascuel (2006), [Approximate Likelihood-Ratio Test for Branches: A Fast, Accurate, and Powerful Alternative](https://doi.org/10.1080/10635150600755453) | theory and algorithm | `lean4-anisimova2006` | to do | - |
+| 10 | Minh, Nguyen, von Haeseler (2013), [Ultrafast Approximation for Phylogenetic Bootstrap](https://doi.org/10.1093/molbev/mst024) | method | `lean4-minh2013` | to do | - |
+| 11 | Hoang et al. (2018), [UFBoot2: Improving the Ultrafast Bootstrap Approximation](https://doi.org/10.1093/molbev/msx281) | method | `lean4-ufboot2` | to do | Minh, Nguyen, von Haeseler 2013 |
+| 12 | Naser-Khdour, Minh, Lanfear (2022), [Assessing Confidence in Root Placement on Phylogenies: An Empirical Study Using Nonreversible Models for Mammals](https://doi.org/10.1093/sysbio/syab067) | method | `lean4-naserkhdour2022` | to do | - |
+
+### 8. Large-scale divide-and-conquer reconstruction
+
+| # | Paper | Kind | Repository | Status | Uses |
+| ---: | --- | --- | --- | --- | --- |
+| 1 | Huson, Nettles, Warnow (1999), [Disk-Covering, a Fast-Converging Method for Phylogenetic Tree Reconstruction](https://doi.org/10.1089/106652799318337) | theory and algorithm | `lean4-dcm` | to do | - |
+| 2 | Huson, Vawter, Warnow (1999), [Solving Large Scale Phylogenetic Problems Using DCM-2](https://pubmed.ncbi.nlm.nih.gov/10786294/) | method | `lean4-dcm2` | to do | DCM |
+| 3 | Huson et al. (1999), [Hybrid Tree Reconstruction Methods](https://doi.org/10.1145/347792.347812) | method | `lean4-huson1999-hybrid` | to do | - |
+| 4 | Roshan et al. (2004), [Rec-I-DCM3: A Fast Algorithmic Technique for Reconstructing Large Phylogenetic Trees](https://doi.org/10.1109/CSB.2004.1332422) | method | `lean4-rec-i-dcm3` | to do | DCM |
+| 5 | Nelesen et al. (2012), [DACTAL: Divide-and-Conquer Trees (Almost) Without Alignments](https://doi.org/10.1093/bioinformatics/bts218) | method | `lean4-dactal` | to do | - |
+| 6 | Zhang, Rao, Warnow (2019), [Constrained Incremental Tree Building: New Absolute Fast Converging Phylogeny Estimation Methods with Improved Scalability and Accuracy](https://doi.org/10.1186/s13015-019-0136-9) | theory and algorithm | `lean4-zhang2019` | to do | - |
 
 <!-- END catalog:papers -->
 

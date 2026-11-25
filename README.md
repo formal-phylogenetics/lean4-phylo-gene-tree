@@ -45,7 +45,9 @@ against the paper, and an audit of the paper reports its errors and gaps.
 
 Each paper is in one family, the one its method belongs to, even when it touches others. Theory
 papers (identifiability, consistency, complexity) are listed with the methods they support. The scope
-is the estimation of a tree from sequences under a model of their evolution. Species trees from
+is the estimation of a tree from sequences under a model of their evolution. The alignment of the
+sequences, and its joint estimation with the tree, is in
+[lean4-phylo-alignment](https://github.com/vltanh/lean4-phylo-alignment). Species trees from
 multilocus data are in [lean4-phylo-species-tree](https://github.com/vltanh/lean4-phylo-species-tree),
 and networks in [lean4-phylo-network](https://github.com/vltanh/lean4-phylo-network). The papers of
 family 6 are foundations of the whole collection: their reusable results go to the root library, and

@@ -364,6 +364,7 @@ url = "https://doi.org/10.1137/0128004"
 kind = "theory+algorithm"
 root = "Sankoff1975"
 status = "todo"
+note = "Its minimal mutation trees of sequences, with insertions and deletions, are the tree alignment problem of lean4-phylo-alignment's family 8."
 
 [[paper]]
 id = "felsenstein1978"

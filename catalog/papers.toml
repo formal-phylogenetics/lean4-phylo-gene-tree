@@ -1,0 +1,531 @@
+# The papers of this hub, one [[paper]] per repository to be, grouped by family of methods: estimating a tree from sequences, typically one alignment or locus.
+#
+# Started on 2026-11-25 from the maintainer's checklist. Authors, years, titles and links are the
+# checklist's, checked against Crossref, which gave the links that the checklist lacked. Each
+# formalization records the exact citation in its Phase 0, and corrects the entry here.
+#
+# Fields of a paper:
+#   id          the repository is lean4-<id>: the method's name in lower case when the paper names
+#               one, otherwise first author and year, with a keyword when two papers would share it
+#   family      the [[family]] it belongs to (each paper is in exactly one)
+#   order       its place in the family, by priority
+#   short       the method's name, when it has one
+#   kind        "theory" (an identifiability, consistency or characterization theorem),
+#               "theory+algorithm", or "method"
+#   root        the Lean package, the root of its code and, by default, the paper's name: the
+#               method's name, otherwise first author and year (lean4-phylogenetics'
+#               docs/CONVENTIONS.md, Section 2)
+#   paper       optional: the paper's name, when it is not the root (CONVENTIONS, Section 2)
+#   status      "todo", "partial" (some results are formalized elsewhere: see covered_by),
+#               "in-progress" (its repository exists), or "formalized"
+#   repo        only when the repository is not named lean4-<id>, as for papers on one topic that
+#               share a repository (CONVENTIONS, Section 3)
+#   commit      for a formalized paper: the commit that other repositories require
+#   uses        other hubs whose library its formalization requires, besides this one
+#   builds_on   ids of papers, of any hub's catalog, whose results its proofs use. Only what is known
+#               before the paper's inventory; its Phase 1 completes the list here
+#   covered_by  what is already formalized, and where
+#   note        anything else
+
+[[family]]
+id = 1
+title = "Maximum likelihood and substitution-model identifiability"
+priority = "highest"
+
+[[family]]
+id = 2
+title = "Distance-based inference and minimum evolution"
+
+[[family]]
+id = 3
+title = "Maximum parsimony and character-based inference"
+
+[[family]]
+id = 4
+title = "Bayesian phylogenetic inference"
+
+[[family]]
+id = 5
+title = "Branch support and statistical hypothesis testing"
+
+[[family]]
+id = 6
+title = "Supporting combinatorial reconstruction theory"
+
+# ---------------------------------------------------------------------------------------------
+# 1. Maximum likelihood and substitution-model identifiability
+# ---------------------------------------------------------------------------------------------
+
+[[paper]]
+id = "felsenstein1981"
+family = 1
+order = 1
+authors = "Felsenstein"
+year = "1981"
+title = "Evolutionary Trees from DNA Sequences: A Maximum Likelihood Approach"
+url = "https://doi.org/10.1007/BF01734359"
+kind = "method"
+root = "Felsenstein1981"
+status = "todo"
+
+[[paper]]
+id = "steel1994"
+family = 1
+order = 2
+authors = "Steel"
+year = "1994"
+title = "Recovering a Tree from the Leaf Colourations It Generates Under a Markov Model"
+url = "https://doi.org/10.1016/0893-9659(94)90024-8"
+kind = "theory"
+root = "Steel1994"
+status = "todo"
+
+[[paper]]
+id = "chang1996"
+family = 1
+order = 3
+authors = "Chang"
+year = "1996"
+title = "Full Reconstruction of Markov Models on Evolutionary Trees: Identifiability and Consistency"
+url = "https://doi.org/10.1016/S0025-5564(96)00075-2"
+kind = "theory"
+root = "Chang1996"
+status = "todo"
+
+[[paper]]
+id = "phyml"
+family = 1
+order = 4
+short = "PhyML"
+authors = "Guindon, Gascuel"
+year = "2003"
+title = "PhyML: A Simple, Fast, and Accurate Algorithm to Estimate Large Phylogenies by Maximum Likelihood"
+url = "https://doi.org/10.1080/10635150390235520"
+kind = "method"
+root = "PhyMl"
+status = "todo"
+
+[[paper]]
+id = "roch2006"
+family = 1
+order = 5
+authors = "Roch"
+year = "2006"
+title = "A Short Proof That Phylogenetic Tree Reconstruction by Maximum Likelihood Is Hard"
+url = "https://doi.org/10.1109/TCBB.2006.4"
+kind = "theory"
+root = "Roch2006"
+status = "todo"
+
+[[paper]]
+id = "raxml"
+family = 1
+order = 6
+short = "RAxML"
+authors = "Stamatakis"
+year = "2006"
+title = "RAxML-VI-HPC: Maximum Likelihood-Based Phylogenetic Analyses with Thousands of Taxa and Mixed Models"
+url = "https://doi.org/10.1093/bioinformatics/btl446"
+kind = "method"
+root = "Raxml"
+status = "todo"
+
+[[paper]]
+id = "allman2008"
+family = 1
+order = 7
+authors = "Allman, Rhodes"
+year = "2008"
+title = "Identifying Evolutionary Trees and Substitution Parameters for the General Markov Model with Invariable Sites"
+url = "https://doi.org/10.1016/j.mbs.2007.09.001"
+kind = "theory"
+root = "Allman2008"
+status = "todo"
+
+[[paper]]
+id = "fasttree2"
+family = 1
+order = 8
+short = "FastTree 2"
+authors = "Price, Dehal, Arkin"
+year = "2010"
+title = "FastTree 2: Approximately Maximum-Likelihood Trees for Large Alignments"
+url = "https://doi.org/10.1371/journal.pone.0009490"
+kind = "method"
+root = "FastTree2"
+status = "todo"
+
+[[paper]]
+id = "iqtree"
+family = 1
+order = 9
+short = "IQ-TREE"
+authors = "Nguyen et al."
+year = "2015"
+title = "IQ-TREE: A Fast and Effective Stochastic Algorithm for Estimating Maximum-Likelihood Phylogenies"
+url = "https://doi.org/10.1093/molbev/msu300"
+kind = "method"
+root = "IqTree"
+status = "todo"
+
+[[paper]]
+id = "raxml-ng"
+family = 1
+order = 10
+short = "RAxML-NG"
+authors = "Kozlov et al."
+year = "2019"
+title = "RAxML-NG: A Fast, Scalable and User-Friendly Tool for Maximum Likelihood Phylogenetic Inference"
+url = "https://doi.org/10.1093/bioinformatics/btz305"
+kind = "method"
+root = "RaxmlNg"
+status = "todo"
+builds_on = ["raxml"]
+
+[[paper]]
+id = "iqtree2"
+family = 1
+order = 11
+short = "IQ-TREE 2"
+authors = "Minh et al."
+year = "2020"
+title = "IQ-TREE 2: New Models and Efficient Methods for Phylogenetic Inference in the Genomic Era"
+url = "https://doi.org/10.1093/molbev/msaa015"
+kind = "method"
+root = "IqTree2"
+status = "todo"
+builds_on = ["iqtree"]
+
+# ---------------------------------------------------------------------------------------------
+# 2. Distance-based inference and minimum evolution
+# ---------------------------------------------------------------------------------------------
+
+[[paper]]
+id = "buneman1971"
+family = 2
+order = 1
+authors = "Buneman"
+year = "1971"
+title = "The Recovery of Trees from Measures of Dissimilarity"
+url = "https://homepages.inf.ed.ac.uk/opb/homepagefiles/phylogeny-scans/manuscripts.pdf"
+kind = "theory"
+root = "Buneman1971"
+status = "partial"
+covered_by = [
+  { repo = "lean4-phylogenetics", what = "the four-point theorem, by another proof than Buneman's, and the recovery of a tree and its weights from its metric (Phylogenetics/Tree/FourPoint.lean, Phylogenetics/Tree/Metric.lean)" },
+]
+
+[[paper]]
+id = "neighbor-joining"
+family = 2
+order = 2
+short = "NJ"
+authors = "Saitou, Nei"
+year = "1987"
+title = "The Neighbor-Joining Method: A New Method for Reconstructing Phylogenetic Trees"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a040454"
+kind = "method"
+root = "NeighborJoining"
+status = "partial"
+covered_by = [
+  { repo = "lean4-phylogenetics", what = "neighbor joining, in the formulation of Studier and Keppler 1988, returns the tree of a tree metric with positive weights, polytomies allowed (Phylogenetics/Tree/NeighborJoining.lean)" },
+]
+
+[[paper]]
+id = "studier1988"
+family = 2
+order = 3
+authors = "Studier, Keppler"
+year = "1988"
+title = "A Note on the Neighbor-Joining Algorithm of Saitou and Nei"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a040527"
+kind = "theory+algorithm"
+root = "Studier1988"
+status = "partial"
+builds_on = ["neighbor-joining"]
+covered_by = [
+  { repo = "lean4-phylogenetics", what = "the Theorem: a pair that minimizes `Q` are neighbours, for trees with polytomies (Phylogenetics/Tree/NeighborJoining.lean)" },
+  { repo = "lean4-tinnik", what = "the Lemma as printed fails at a polytomy (Tinnik/External/StudierKeppler1988/)" },
+]
+
+[[paper]]
+id = "lockhart1994"
+family = 2
+order = 4
+short = "LogDet"
+authors = "Lockhart et al."
+year = "1994"
+title = "Recovering Evolutionary Trees Under a More Realistic Model of Sequence Evolution (LogDet)"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a040136"
+kind = "method"
+root = "Lockhart1994"
+status = "todo"
+
+[[paper]]
+id = "bionj"
+family = 2
+order = 5
+short = "BIONJ"
+authors = "Gascuel"
+year = "1997"
+title = "BIONJ: An Improved Version of the NJ Algorithm Based on a Simple Model of Sequence Data"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a025808"
+kind = "method"
+root = "BioNj"
+status = "todo"
+builds_on = ["neighbor-joining"]
+
+[[paper]]
+id = "atteson1999"
+family = 2
+order = 6
+authors = "Atteson"
+year = "1999"
+title = "The Performance of Neighbor-Joining Methods of Phylogenetic Reconstruction"
+url = "https://doi.org/10.1007/PL00008277"
+kind = "theory"
+root = "Atteson1999"
+status = "todo"
+
+[[paper]]
+id = "pauplin2000"
+family = 2
+order = 7
+authors = "Pauplin"
+year = "2000"
+title = "Direct Calculation of a Tree Length Using a Distance Matrix"
+url = "https://doi.org/10.1007/s002390010065"
+kind = "theory"
+root = "Pauplin2000"
+status = "todo"
+
+[[paper]]
+id = "desper2002"
+family = 2
+order = 8
+authors = "Desper, Gascuel"
+year = "2002"
+title = "Fast and Accurate Phylogeny Reconstruction Algorithms Based on the Minimum-Evolution Principle"
+url = "https://doi.org/10.1089/106652702761034136"
+kind = "method"
+root = "Desper2002"
+status = "todo"
+
+[[paper]]
+id = "desper2004"
+family = 2
+order = 9
+authors = "Desper, Gascuel"
+year = "2004"
+title = "Theoretical Foundation of the Balanced Minimum Evolution Method and Its Relationship to Weighted Least-Squares Tree Fitting"
+url = "https://doi.org/10.1093/molbev/msh049"
+kind = "theory"
+root = "Desper2004"
+status = "todo"
+
+[[paper]]
+id = "fastme2"
+family = 2
+order = 10
+short = "FastME 2.0"
+authors = "Lefort, Desper, Gascuel"
+year = "2015"
+title = "FastME 2.0: A Comprehensive, Accurate, and Fast Distance-Based Phylogeny Inference Program"
+url = "https://doi.org/10.1093/molbev/msv150"
+kind = "method"
+root = "FastMe2"
+status = "todo"
+builds_on = ["desper2002"]
+
+# ---------------------------------------------------------------------------------------------
+# 3. Maximum parsimony and character-based inference
+# ---------------------------------------------------------------------------------------------
+
+[[paper]]
+id = "fitch1971"
+family = 3
+order = 1
+authors = "Fitch"
+year = "1971"
+title = "Toward Defining the Course of Evolution: Minimum Change for a Specific Tree Topology"
+url = "https://doi.org/10.2307/2412116"
+kind = "theory+algorithm"
+root = "Fitch1971"
+status = "todo"
+
+[[paper]]
+id = "sankoff1975"
+family = 3
+order = 2
+authors = "Sankoff"
+year = "1975"
+title = "Minimal Mutation Trees of Sequences"
+url = "https://doi.org/10.1137/0128004"
+kind = "theory+algorithm"
+root = "Sankoff1975"
+status = "todo"
+
+[[paper]]
+id = "felsenstein1978"
+family = 3
+order = 3
+authors = "Felsenstein"
+year = "1978"
+title = "Cases in Which Parsimony or Compatibility Methods Will Be Positively Misleading"
+url = "https://doi.org/10.2307/2412923"
+kind = "theory"
+root = "Felsenstein1978"
+status = "todo"
+
+[[paper]]
+id = "tuffley1997"
+family = 3
+order = 4
+authors = "Tuffley, Steel"
+year = "1997"
+title = "Links Between Maximum Likelihood and Maximum Parsimony Under a Simple Model of Site Substitution"
+url = "https://doi.org/10.1007/BF02459467"
+kind = "theory"
+root = "Tuffley1997"
+status = "todo"
+
+# ---------------------------------------------------------------------------------------------
+# 4. Bayesian phylogenetic inference
+# ---------------------------------------------------------------------------------------------
+
+[[paper]]
+id = "rannala1996"
+family = 4
+order = 1
+authors = "Rannala, Yang"
+year = "1996"
+title = "Probability Distribution of Molecular Evolutionary Trees: A New Method of Phylogenetic Inference"
+url = "https://doi.org/10.1007/BF02338839"
+kind = "theory+algorithm"
+root = "Rannala1996"
+status = "todo"
+
+[[paper]]
+id = "mau1999"
+family = 4
+order = 2
+authors = "Mau, Newton, Larget"
+year = "1999"
+title = "Bayesian Phylogenetic Inference via Markov Chain Monte Carlo Methods"
+url = "https://doi.org/10.1111/j.0006-341X.1999.00001.x"
+kind = "method"
+root = "Mau1999"
+status = "todo"
+
+[[paper]]
+id = "mrbayes"
+family = 4
+order = 3
+short = "MrBayes"
+authors = "Huelsenbeck, Ronquist"
+year = "2001"
+title = "MrBayes: Bayesian Inference of Phylogenetic Trees"
+url = "https://doi.org/10.1093/bioinformatics/17.8.754"
+kind = "method"
+root = "MrBayes"
+status = "todo"
+
+[[paper]]
+id = "beast"
+family = 4
+order = 4
+short = "BEAST"
+authors = "Drummond, Rambaut"
+year = "2007"
+title = "BEAST: Bayesian Evolutionary Analysis by Sampling Trees"
+url = "https://doi.org/10.1186/1471-2148-7-214"
+kind = "method"
+root = "Beast"
+status = "todo"
+
+# ---------------------------------------------------------------------------------------------
+# 5. Branch support and statistical hypothesis testing
+# ---------------------------------------------------------------------------------------------
+
+[[paper]]
+id = "felsenstein1985"
+family = 5
+order = 1
+authors = "Felsenstein"
+year = "1985"
+title = "Confidence Limits on Phylogenies: An Approach Using the Bootstrap"
+url = "https://doi.org/10.1111/j.1558-5646.1985.tb00420.x"
+kind = "method"
+root = "Felsenstein1985"
+status = "todo"
+
+[[paper]]
+id = "shimodaira2002"
+family = 5
+order = 2
+authors = "Shimodaira"
+year = "2002"
+title = "An Approximately Unbiased Test of Phylogenetic Tree Selection"
+url = "https://doi.org/10.1080/10635150290069913"
+kind = "method"
+root = "Shimodaira2002"
+status = "todo"
+
+[[paper]]
+id = "minh2013"
+family = 5
+order = 3
+authors = "Minh, Nguyen, von Haeseler"
+year = "2013"
+title = "Ultrafast Approximation for Phylogenetic Bootstrap"
+url = "https://doi.org/10.1093/molbev/mst024"
+kind = "method"
+root = "Minh2013"
+status = "todo"
+
+# ---------------------------------------------------------------------------------------------
+# 6. Supporting combinatorial reconstruction theory
+# ---------------------------------------------------------------------------------------------
+
+[[paper]]
+id = "aho1981"
+family = 6
+order = 1
+short = "BUILD"
+authors = "Aho et al."
+year = "1981"
+title = "Inferring a Tree from Lowest Common Ancestors with an Application to the Optimization of Relational Expressions (BUILD)"
+url = "https://doi.org/10.1137/0210030"
+kind = "theory+algorithm"
+root = "Aho1981"
+status = "todo"
+note = "A foundation of the collection: its reusable results go to lean4-phylogenetics, and the paper's repository formalizes the rest (docs/CONVENTIONS.md, Section 4)"
+
+[[paper]]
+id = "robinson1981"
+family = 6
+order = 2
+authors = "Robinson, Foulds"
+year = "1981"
+title = "Comparison of Phylogenetic Trees"
+url = "https://doi.org/10.1016/0025-5564(81)90043-2"
+kind = "theory"
+root = "Robinson1981"
+status = "todo"
+note = "A foundation of the collection: its reusable results go to lean4-phylogenetics, and the paper's repository formalizes the rest (docs/CONVENTIONS.md, Section 4)"
+
+[[paper]]
+id = "steel1992"
+family = 6
+order = 3
+authors = "Steel"
+year = "1992"
+title = "The Complexity of Reconstructing Trees from Qualitative Characters and Subtrees"
+url = "https://doi.org/10.1007/BF02618470"
+kind = "theory"
+root = "Steel1992"
+status = "partial"
+covered_by = [
+  { repo = "lean4-phylogenetics", what = "a tree is determined by its quartets, and every internal edge is distinguished by a quartet (Proposition 6), for trees that need not be binary (Phylogenetics/Hierarchy/Quartets.lean)" },
+]
+note = "A foundation of the collection: its reusable results go to lean4-phylogenetics, and the paper's repository formalizes the rest (docs/CONVENTIONS.md, Section 4)"

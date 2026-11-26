@@ -65,7 +65,7 @@ substitution models of family 3 go to the root library.
 - [ ] Felsenstein (1981), [Evolutionary Trees from DNA Sequences: A Maximum Likelihood Approach](https://doi.org/10.1007/BF01734359)
 - [ ] Rogers (1997), [On the Consistency of Maximum Likelihood Estimation of Phylogenetic Trees from Nucleotide Sequences](https://doi.org/10.2307/2413629)
 - [ ] Lewis (1998), [A Genetic Algorithm for Maximum-Likelihood Phylogeny Inference Using Nucleotide Sequence Data](https://doi.org/10.1093/oxfordjournals.molbev.a025924)
-- [ ] Guindon, Gascuel (2003), [PhyML: A Simple, Fast, and Accurate Algorithm to Estimate Large Phylogenies by Maximum Likelihood](https://doi.org/10.1080/10635150390235520)
+- [ ] Guindon, Gascuel (2003), [A Simple, Fast, and Accurate Algorithm to Estimate Large Phylogenies by Maximum Likelihood](https://doi.org/10.1080/10635150390235520)
 - [ ] Chor, Tuller (2005), [Maximum Likelihood of Evolutionary Trees: Hardness and Approximation](https://doi.org/10.1093/bioinformatics/bti1027)
 - [ ] Hordijk, Gascuel (2005), [Improving the Efficiency of SPR Moves in Phylogenetic Tree Search Methods Based on Maximum Likelihood](https://doi.org/10.1093/bioinformatics/bti713)
 - [ ] Roch (2006), [A Short Proof That Phylogenetic Tree Reconstruction by Maximum Likelihood Is Hard](https://doi.org/10.1109/TCBB.2006.4)
@@ -87,14 +87,14 @@ substitution models of family 3 go to the root library.
 - [ ] Saitou, Nei (1987), [The Neighbor-Joining Method: A New Method for Reconstructing Phylogenetic Trees](https://doi.org/10.1093/oxfordjournals.molbev.a040454), partly covered by lean4-phylogenetics
 - [ ] Studier, Keppler (1988), [A Note on the Neighbor-Joining Algorithm of Saitou and Nei](https://doi.org/10.1093/oxfordjournals.molbev.a040527), partly covered by lean4-phylogenetics, lean4-tinnik
 - [ ] Lake (1994), [Reconstructing Evolutionary Trees from DNA and Protein Sequences: Paralinear Distances](https://doi.org/10.1073/pnas.91.4.1455)
-- [ ] Lockhart et al. (1994), [Recovering Evolutionary Trees Under a More Realistic Model of Sequence Evolution (LogDet)](https://doi.org/10.1093/oxfordjournals.molbev.a040136)
+- [ ] Lockhart et al. (1994), [Recovering Evolutionary Trees Under a More Realistic Model of Sequence Evolution](https://doi.org/10.1093/oxfordjournals.molbev.a040136)
 - [ ] Farach, Kannan, Warnow (1995), [A Robust Model for Finding Optimal Evolutionary Trees](https://doi.org/10.1007/BF01188585)
 - [ ] Gascuel (1997), [BIONJ: An Improved Version of the NJ Algorithm Based on a Simple Model of Sequence Data](https://doi.org/10.1093/oxfordjournals.molbev.a025808)
 - [ ] Atteson (1999), [The Performance of Neighbor-Joining Methods of Phylogenetic Reconstruction](https://doi.org/10.1007/PL00008277)
 - [ ] Pauplin (2000), [Direct Calculation of a Tree Length Using a Distance Matrix](https://doi.org/10.1007/s002390010065)
-- [ ] Bruno, Socci, Halpern (2000), [Weighted Neighbor Joining: A Likelihood-Based Approach to Distance-Based Phylogeny Reconstruction (Weighbor)](https://doi.org/10.1093/oxfordjournals.molbev.a026231)
+- [ ] Bruno, Socci, Halpern (2000), [Weighted Neighbor Joining: A Likelihood-Based Approach to Distance-Based Phylogeny Reconstruction](https://doi.org/10.1093/oxfordjournals.molbev.a026231)
 - [ ] Desper, Gascuel (2002), [Fast and Accurate Phylogeny Reconstruction Algorithms Based on the Minimum-Evolution Principle](https://doi.org/10.1089/106652702761034136)
-- [ ] Desper, Gascuel (2004), [Theoretical Foundation of the Balanced Minimum Evolution Method and Its Relationship to Weighted Least-Squares Tree Fitting](https://doi.org/10.1093/molbev/msh049)
+- [ ] Desper, Gascuel (2004), [Theoretical Foundation of the Balanced Minimum Evolution Method of Phylogenetic Inference and Its Relationship to Weighted Least-Squares Tree Fitting](https://doi.org/10.1093/molbev/msh049)
 - [ ] Gascuel, Steel (2006), [Neighbor-Joining Revealed](https://doi.org/10.1093/molbev/msl072)
 - [ ] Eickmeyer et al. (2008), [On the Optimality of the Neighbor-Joining Algorithm](https://doi.org/10.1186/1748-7188-3-5)
 - [ ] Elias, Lagergren (2009), [Fast Neighbor Joining](https://doi.org/10.1016/j.tcs.2008.12.040)
@@ -176,7 +176,7 @@ substitution models of family 3 go to the root library.
 ### 8. Large-scale divide-and-conquer reconstruction
 
 - [ ] Huson, Nettles, Warnow (1999), [Disk-Covering, a Fast-Converging Method for Phylogenetic Tree Reconstruction](https://doi.org/10.1089/106652799318337)
-- [ ] Huson, Vawter, Warnow (1999), [Solving Large Scale Phylogenetic Problems Using DCM-2](https://pubmed.ncbi.nlm.nih.gov/10786294/)
+- [ ] Huson, Vawter, Warnow (1999), [Solving Large Scale Phylogenetic Problems Using DCM2](https://pubmed.ncbi.nlm.nih.gov/10786294/)
 - [ ] Huson et al. (1999), [Hybrid Tree Reconstruction Methods](https://doi.org/10.1145/347792.347812)
 - [ ] Roshan et al. (2004), [Rec-I-DCM3: A Fast Algorithmic Technique for Reconstructing Large Phylogenetic Trees](https://doi.org/10.1109/CSB.2004.1332422)
 - [ ] Nelesen et al. (2012), [DACTAL: Divide-and-Conquer Trees (Almost) Without Alignments](https://doi.org/10.1093/bioinformatics/bts218)

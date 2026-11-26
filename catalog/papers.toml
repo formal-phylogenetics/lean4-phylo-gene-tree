@@ -15,40 +15,28 @@
 
 [[family]]
 id = 1
-title = "Maximum likelihood and tree-search algorithms"
+title = "Maximum likelihood"
 priority = "highest"
 
 [[family]]
 id = 2
-title = "Distance-based inference and minimum evolution"
+title = "Distance-based inference"
 
 [[family]]
 id = 3
-title = "Molecular substitution models"
+title = "Evolutionary models and model selection"
 priority = "foundational"
 
 [[family]]
 id = 4
-title = "Substitution-model selection and adequacy"
+title = "Bayesian inference"
 
 [[family]]
 id = 5
-title = "Maximum parsimony"
-
-[[family]]
-id = 6
-title = "Bayesian phylogenetic inference and MCMC"
-
-[[family]]
-id = 7
-title = "Branch support, rooting and hypothesis testing"
-
-[[family]]
-id = 8
-title = "Large-scale divide-and-conquer reconstruction"
+title = "Parsimony, support, rooting and scalable inference"
 
 # ---------------------------------------------------------------------------------------------
-# 1. Maximum likelihood and tree-search algorithms
+# 1. Maximum likelihood
 # ---------------------------------------------------------------------------------------------
 
 [[paper]]
@@ -285,7 +273,7 @@ status = "todo"
 builds_on = ["iqtree2"]
 
 # ---------------------------------------------------------------------------------------------
-# 2. Distance-based inference and minimum evolution
+# 2. Distance-based inference
 # ---------------------------------------------------------------------------------------------
 
 [[paper]]
@@ -578,8 +566,10 @@ root = "Kim2026"
 status = "todo"
 
 # ---------------------------------------------------------------------------------------------
-# 3. Molecular substitution models
+# 3. Evolutionary models and model selection
 # ---------------------------------------------------------------------------------------------
+
+# Molecular substitution models
 
 [[paper]]
 id = "neyman1971"
@@ -803,14 +793,12 @@ kind = "method"
 root = "Kolaczkowski2008"
 status = "todo"
 
-# ---------------------------------------------------------------------------------------------
-# 4. Substitution-model selection and adequacy
-# ---------------------------------------------------------------------------------------------
+# Substitution-model selection and adequacy
 
 [[paper]]
 id = "goldman1993"
-family = 4
-order = 1
+family = 3
+order = 19
 authors = "Goldman"
 year = "1993"
 title = "Statistical Tests of Models of DNA Substitution"
@@ -821,8 +809,8 @@ status = "todo"
 
 [[paper]]
 id = "modeltest"
-family = 4
-order = 2
+family = 3
+order = 20
 short = "MODELTEST"
 authors = "Posada, Crandall"
 year = "1998"
@@ -834,8 +822,8 @@ status = "todo"
 
 [[paper]]
 id = "bollback2002"
-family = 4
-order = 3
+family = 3
+order = 21
 authors = "Bollback"
 year = "2002"
 title = "Bayesian Model Adequacy and Choice in Phylogenetics"
@@ -846,8 +834,8 @@ status = "todo"
 
 [[paper]]
 id = "prottest"
-family = 4
-order = 4
+family = 3
+order = 22
 short = "ProtTest"
 authors = "Abascal, Zardoya, Posada"
 year = "2005"
@@ -859,8 +847,8 @@ status = "todo"
 
 [[paper]]
 id = "jmodeltest"
-family = 4
-order = 5
+family = 3
+order = 23
 short = "jModelTest"
 authors = "Posada"
 year = "2008"
@@ -873,8 +861,8 @@ builds_on = ["modeltest"]
 
 [[paper]]
 id = "partitionfinder"
-family = 4
-order = 6
+family = 3
+order = 24
 short = "PartitionFinder"
 authors = "Lanfear et al."
 year = "2012"
@@ -886,8 +874,8 @@ status = "todo"
 
 [[paper]]
 id = "jmodeltest2"
-family = 4
-order = 7
+family = 3
+order = 25
 short = "jModelTest 2"
 authors = "Darriba et al."
 year = "2012"
@@ -900,8 +888,8 @@ builds_on = ["jmodeltest"]
 
 [[paper]]
 id = "bmodeltest"
-family = 4
-order = 8
+family = 3
+order = 26
 short = "bModelTest"
 authors = "Bouckaert, Drummond"
 year = "2017"
@@ -913,8 +901,8 @@ status = "todo"
 
 [[paper]]
 id = "modelfinder"
-family = 4
-order = 9
+family = 3
+order = 27
 short = "ModelFinder"
 authors = "Kalyaanamoorthy et al."
 year = "2017"
@@ -926,8 +914,8 @@ status = "todo"
 
 [[paper]]
 id = "fabreti2023"
-family = 4
-order = 10
+family = 3
+order = 28
 authors = "Fabreti, Höhna"
 year = "2023"
 title = "Nucleotide Substitution Model Selection Is Not Necessary for Bayesian Inference of Phylogeny with Well-Behaved Priors"
@@ -937,8 +925,153 @@ root = "Fabreti2023"
 status = "todo"
 
 # ---------------------------------------------------------------------------------------------
-# 5. Maximum parsimony
+# 4. Bayesian inference
 # ---------------------------------------------------------------------------------------------
+
+[[paper]]
+id = "rannala1996"
+family = 4
+order = 1
+authors = "Rannala, Yang"
+year = "1996"
+title = "Probability Distribution of Molecular Evolutionary Trees: A New Method of Phylogenetic Inference"
+url = "https://doi.org/10.1007/BF02338839"
+kind = "theory+algorithm"
+root = "Rannala1996"
+status = "todo"
+
+[[paper]]
+id = "mau1999"
+family = 4
+order = 2
+authors = "Mau, Newton, Larget"
+year = "1999"
+title = "Bayesian Phylogenetic Inference via Markov Chain Monte Carlo Methods"
+url = "https://doi.org/10.1111/j.0006-341X.1999.00001.x"
+kind = "method"
+root = "Mau1999"
+status = "todo"
+
+[[paper]]
+id = "larget1999"
+family = 4
+order = 3
+authors = "Larget, Simon"
+year = "1999"
+title = "Markov Chain Monte Carlo Algorithms for the Bayesian Analysis of Phylogenetic Trees"
+url = "https://doi.org/10.1093/oxfordjournals.molbev.a026160"
+kind = "theory+algorithm"
+root = "Larget1999"
+status = "todo"
+
+[[paper]]
+id = "mrbayes"
+family = 4
+order = 4
+short = "MrBayes"
+authors = "Huelsenbeck, Ronquist"
+year = "2001"
+title = "MrBayes: Bayesian Inference of Phylogenetic Trees"
+url = "https://doi.org/10.1093/bioinformatics/17.8.754"
+kind = "method"
+root = "MrBayes"
+status = "todo"
+
+[[paper]]
+id = "mossel2005"
+family = 4
+order = 5
+authors = "Mossel, Vigoda"
+year = "2005"
+title = "Phylogenetic MCMC Algorithms Are Misleading on Mixtures of Trees"
+url = "https://doi.org/10.1126/science.1115493"
+kind = "theory"
+root = "Mossel2005"
+status = "todo"
+
+[[paper]]
+id = "beast"
+family = 4
+order = 6
+short = "BEAST"
+authors = "Drummond, Rambaut"
+year = "2007"
+title = "BEAST: Bayesian Evolutionary Analysis by Sampling Trees"
+url = "https://doi.org/10.1186/1471-2148-7-214"
+kind = "method"
+root = "Beast"
+status = "todo"
+
+[[paper]]
+id = "lakner2008"
+family = 4
+order = 7
+authors = "Lakner et al."
+year = "2008"
+title = "Efficiency of Markov Chain Monte Carlo Tree Proposals in Bayesian Phylogenetics"
+url = "https://doi.org/10.1080/10635150801886156"
+kind = "theory+algorithm"
+root = "Lakner2008"
+status = "todo"
+
+[[paper]]
+id = "mrbayes3-2"
+family = 4
+order = 8
+short = "MrBayes 3.2"
+authors = "Ronquist et al."
+year = "2012"
+title = "MrBayes 3.2: Efficient Bayesian Phylogenetic Inference and Model Choice Across a Large Model Space"
+url = "https://doi.org/10.1093/sysbio/sys029"
+kind = "method"
+root = "MrBayes32"
+status = "todo"
+builds_on = ["mrbayes"]
+
+[[paper]]
+id = "beast2"
+family = 4
+order = 9
+short = "BEAST 2"
+authors = "Bouckaert et al."
+year = "2014"
+title = "BEAST 2: A Software Platform for Bayesian Evolutionary Analysis"
+url = "https://doi.org/10.1371/journal.pcbi.1003537"
+kind = "method"
+root = "Beast2"
+status = "todo"
+builds_on = ["beast"]
+
+[[paper]]
+id = "whidden2015"
+family = 4
+order = 10
+authors = "Whidden, Matsen"
+year = "2015"
+title = "Quantifying MCMC Exploration of Phylogenetic Tree Space"
+url = "https://doi.org/10.1093/sysbio/syv006"
+kind = "theory+algorithm"
+root = "Whidden2015"
+status = "todo"
+
+[[paper]]
+id = "revbayes"
+family = 4
+order = 11
+short = "RevBayes"
+authors = "Höhna et al."
+year = "2016"
+title = "RevBayes: Bayesian Phylogenetic Inference Using Graphical Models and an Interactive Model-Specification Language"
+url = "https://doi.org/10.1093/sysbio/syw021"
+kind = "method"
+root = "RevBayes"
+status = "todo"
+
+# ---------------------------------------------------------------------------------------------
+# 5. Parsimony, support, rooting and scalable inference
+# ---------------------------------------------------------------------------------------------
+
+# Maximum parsimony
 
 [[paper]]
 id = "fitch1971"
@@ -964,157 +1097,12 @@ kind = "theory"
 root = "Tuffley1997"
 status = "todo"
 
-# ---------------------------------------------------------------------------------------------
-# 6. Bayesian phylogenetic inference and MCMC
-# ---------------------------------------------------------------------------------------------
-
-[[paper]]
-id = "rannala1996"
-family = 6
-order = 1
-authors = "Rannala, Yang"
-year = "1996"
-title = "Probability Distribution of Molecular Evolutionary Trees: A New Method of Phylogenetic Inference"
-url = "https://doi.org/10.1007/BF02338839"
-kind = "theory+algorithm"
-root = "Rannala1996"
-status = "todo"
-
-[[paper]]
-id = "mau1999"
-family = 6
-order = 2
-authors = "Mau, Newton, Larget"
-year = "1999"
-title = "Bayesian Phylogenetic Inference via Markov Chain Monte Carlo Methods"
-url = "https://doi.org/10.1111/j.0006-341X.1999.00001.x"
-kind = "method"
-root = "Mau1999"
-status = "todo"
-
-[[paper]]
-id = "larget1999"
-family = 6
-order = 3
-authors = "Larget, Simon"
-year = "1999"
-title = "Markov Chain Monte Carlo Algorithms for the Bayesian Analysis of Phylogenetic Trees"
-url = "https://doi.org/10.1093/oxfordjournals.molbev.a026160"
-kind = "theory+algorithm"
-root = "Larget1999"
-status = "todo"
-
-[[paper]]
-id = "mrbayes"
-family = 6
-order = 4
-short = "MrBayes"
-authors = "Huelsenbeck, Ronquist"
-year = "2001"
-title = "MrBayes: Bayesian Inference of Phylogenetic Trees"
-url = "https://doi.org/10.1093/bioinformatics/17.8.754"
-kind = "method"
-root = "MrBayes"
-status = "todo"
-
-[[paper]]
-id = "mossel2005"
-family = 6
-order = 5
-authors = "Mossel, Vigoda"
-year = "2005"
-title = "Phylogenetic MCMC Algorithms Are Misleading on Mixtures of Trees"
-url = "https://doi.org/10.1126/science.1115493"
-kind = "theory"
-root = "Mossel2005"
-status = "todo"
-
-[[paper]]
-id = "beast"
-family = 6
-order = 6
-short = "BEAST"
-authors = "Drummond, Rambaut"
-year = "2007"
-title = "BEAST: Bayesian Evolutionary Analysis by Sampling Trees"
-url = "https://doi.org/10.1186/1471-2148-7-214"
-kind = "method"
-root = "Beast"
-status = "todo"
-
-[[paper]]
-id = "lakner2008"
-family = 6
-order = 7
-authors = "Lakner et al."
-year = "2008"
-title = "Efficiency of Markov Chain Monte Carlo Tree Proposals in Bayesian Phylogenetics"
-url = "https://doi.org/10.1080/10635150801886156"
-kind = "theory+algorithm"
-root = "Lakner2008"
-status = "todo"
-
-[[paper]]
-id = "mrbayes3-2"
-family = 6
-order = 8
-short = "MrBayes 3.2"
-authors = "Ronquist et al."
-year = "2012"
-title = "MrBayes 3.2: Efficient Bayesian Phylogenetic Inference and Model Choice Across a Large Model Space"
-url = "https://doi.org/10.1093/sysbio/sys029"
-kind = "method"
-root = "MrBayes32"
-status = "todo"
-builds_on = ["mrbayes"]
-
-[[paper]]
-id = "beast2"
-family = 6
-order = 9
-short = "BEAST 2"
-authors = "Bouckaert et al."
-year = "2014"
-title = "BEAST 2: A Software Platform for Bayesian Evolutionary Analysis"
-url = "https://doi.org/10.1371/journal.pcbi.1003537"
-kind = "method"
-root = "Beast2"
-status = "todo"
-builds_on = ["beast"]
-
-[[paper]]
-id = "whidden2015"
-family = 6
-order = 10
-authors = "Whidden, Matsen"
-year = "2015"
-title = "Quantifying MCMC Exploration of Phylogenetic Tree Space"
-url = "https://doi.org/10.1093/sysbio/syv006"
-kind = "theory+algorithm"
-root = "Whidden2015"
-status = "todo"
-
-[[paper]]
-id = "revbayes"
-family = 6
-order = 11
-short = "RevBayes"
-authors = "Höhna et al."
-year = "2016"
-title = "RevBayes: Bayesian Phylogenetic Inference Using Graphical Models and an Interactive Model-Specification Language"
-url = "https://doi.org/10.1093/sysbio/syw021"
-kind = "method"
-root = "RevBayes"
-status = "todo"
-
-# ---------------------------------------------------------------------------------------------
-# 7. Branch support, rooting and hypothesis testing
-# ---------------------------------------------------------------------------------------------
+# Branch support, rooting and hypothesis testing
 
 [[paper]]
 id = "felsenstein1985"
-family = 7
-order = 1
+family = 5
+order = 3
 authors = "Felsenstein"
 year = "1985"
 title = "Confidence Limits on Phylogenies: An Approach Using the Bootstrap"
@@ -1125,8 +1113,8 @@ status = "todo"
 
 [[paper]]
 id = "kishino1989"
-family = 7
-order = 2
+family = 5
+order = 4
 authors = "Kishino, Hasegawa"
 year = "1989"
 title = "Evaluation of the Maximum Likelihood Estimate of the Evolutionary Tree Topologies from DNA Sequence Data, and the Branching Order in Hominoidea"
@@ -1137,8 +1125,8 @@ status = "todo"
 
 [[paper]]
 id = "huelsenbeck1996"
-family = 7
-order = 3
+family = 5
+order = 5
 authors = "Huelsenbeck, Hillis, Nielsen"
 year = "1996"
 title = "A Likelihood-Ratio Test of Monophyly"
@@ -1149,8 +1137,8 @@ status = "todo"
 
 [[paper]]
 id = "efron1996"
-family = 7
-order = 4
+family = 5
+order = 6
 authors = "Efron, Halloran, Holmes"
 year = "1996"
 title = "Bootstrap Confidence Levels for Phylogenetic Trees"
@@ -1162,8 +1150,8 @@ builds_on = ["felsenstein1985"]
 
 [[paper]]
 id = "shimodaira1999"
-family = 7
-order = 5
+family = 5
+order = 7
 authors = "Shimodaira, Hasegawa"
 year = "1999"
 title = "Multiple Comparisons of Log-Likelihoods with Applications to Phylogenetic Inference"
@@ -1174,8 +1162,8 @@ status = "todo"
 
 [[paper]]
 id = "shimodaira2002"
-family = 7
-order = 6
+family = 5
+order = 8
 authors = "Shimodaira"
 year = "2002"
 title = "An Approximately Unbiased Test of Phylogenetic Tree Selection"
@@ -1186,8 +1174,8 @@ status = "todo"
 
 [[paper]]
 id = "huelsenbeck2002"
-family = 7
-order = 7
+family = 5
+order = 9
 authors = "Huelsenbeck, Bollback, Levine"
 year = "2002"
 title = "Inferring the Root of a Phylogenetic Tree"
@@ -1198,8 +1186,8 @@ status = "todo"
 
 [[paper]]
 id = "yap2005"
-family = 7
-order = 8
+family = 5
+order = 10
 authors = "Yap, Speed"
 year = "2005"
 title = "Rooting a Phylogenetic Tree with Nonreversible Substitution Models"
@@ -1210,8 +1198,8 @@ status = "todo"
 
 [[paper]]
 id = "anisimova2006"
-family = 7
-order = 9
+family = 5
+order = 11
 short = "aLRT"
 authors = "Anisimova, Gascuel"
 year = "2006"
@@ -1223,8 +1211,8 @@ status = "todo"
 
 [[paper]]
 id = "minh2013"
-family = 7
-order = 10
+family = 5
+order = 12
 authors = "Minh, Nguyen, von Haeseler"
 year = "2013"
 title = "Ultrafast Approximation for Phylogenetic Bootstrap"
@@ -1235,8 +1223,8 @@ status = "todo"
 
 [[paper]]
 id = "ufboot2"
-family = 7
-order = 11
+family = 5
+order = 13
 short = "UFBoot2"
 authors = "Hoang et al."
 year = "2018"
@@ -1249,8 +1237,8 @@ builds_on = ["minh2013"]
 
 [[paper]]
 id = "naserkhdour2022"
-family = 7
-order = 12
+family = 5
+order = 14
 authors = "Naser-Khdour, Minh, Lanfear"
 year = "2022"
 title = "Assessing Confidence in Root Placement on Phylogenies: An Empirical Study Using Nonreversible Models for Mammals"
@@ -1259,14 +1247,12 @@ kind = "method"
 root = "NaserKhdour2022"
 status = "todo"
 
-# ---------------------------------------------------------------------------------------------
-# 8. Large-scale divide-and-conquer reconstruction
-# ---------------------------------------------------------------------------------------------
+# Large-scale divide-and-conquer reconstruction
 
 [[paper]]
 id = "dcm"
-family = 8
-order = 1
+family = 5
+order = 15
 short = "DCM"
 authors = "Huson, Nettles, Warnow"
 year = "1999"
@@ -1278,8 +1264,8 @@ status = "todo"
 
 [[paper]]
 id = "dcm2"
-family = 8
-order = 2
+family = 5
+order = 16
 short = "DCM2"
 authors = "Huson, Vawter, Warnow"
 year = "1999"
@@ -1293,8 +1279,8 @@ note = "In the proceedings of ISMB 1999, 118–129, with no DOI: the link is its
 
 [[paper]]
 id = "huson1999-hybrid"
-family = 8
-order = 3
+family = 5
+order = 17
 authors = "Huson et al."
 year = "1999"
 title = "Hybrid Tree Reconstruction Methods"
@@ -1305,8 +1291,8 @@ status = "todo"
 
 [[paper]]
 id = "rec-i-dcm3"
-family = 8
-order = 4
+family = 5
+order = 18
 short = "Rec-I-DCM3"
 authors = "Roshan et al."
 year = "2004"
@@ -1319,8 +1305,8 @@ builds_on = ["dcm"]
 
 [[paper]]
 id = "dactal"
-family = 8
-order = 5
+family = 5
+order = 19
 short = "DACTAL"
 authors = "Nelesen et al."
 year = "2012"
@@ -1332,8 +1318,8 @@ status = "todo"
 
 [[paper]]
 id = "zhang2019"
-family = 8
-order = 6
+family = 5
+order = 20
 authors = "Zhang, Rao, Warnow"
 year = "2019"
 title = "Constrained Incremental Tree Building: New Absolute Fast Converging Phylogeny Estimation Methods with Improved Scalability and Accuracy"

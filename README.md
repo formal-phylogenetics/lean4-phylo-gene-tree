@@ -71,7 +71,7 @@ substitution models of family 3 go to the root library.
 - [ ] Roch (2006), [A Short Proof That Phylogenetic Tree Reconstruction by Maximum Likelihood Is Hard](https://doi.org/10.1109/TCBB.2006.4)
 - [ ] Stamatakis (2006), [RAxML-VI-HPC: Maximum Likelihood-Based Phylogenetic Analyses with Thousands of Taxa and Mixed Models](https://doi.org/10.1093/bioinformatics/btl446)
 - [ ] Price, Dehal, Arkin (2009), [FastTree: Computing Large Minimum Evolution Trees with Profiles Instead of a Distance Matrix](https://doi.org/10.1093/molbev/msp077)
-- [ ] Price, Dehal, Arkin (2010), [FastTree 2: Approximately Maximum-Likelihood Trees for Large Alignments](https://doi.org/10.1371/journal.pone.0009490)
+- [ ] Price, Dehal, Arkin (2010), [FastTree 2 – Approximately Maximum-Likelihood Trees for Large Alignments](https://doi.org/10.1371/journal.pone.0009490)
 - [ ] Guindon et al. (2010), [New Algorithms and Methods to Estimate Maximum-Likelihood Phylogenies: Assessing the Performance of PhyML 3.0](https://doi.org/10.1093/sysbio/syq010)
 - [ ] Stamatakis (2014), [RAxML Version 8: A Tool for Phylogenetic Analysis and Post-Analysis of Large Phylogenies](https://doi.org/10.1093/bioinformatics/btu033)
 - [ ] Kozlov, Aberer, Stamatakis (2015), [ExaML Version 3: A Tool for Phylogenomic Analyses on Supercomputers](https://doi.org/10.1093/bioinformatics/btv184)

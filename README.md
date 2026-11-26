@@ -49,8 +49,10 @@ complexity and consistency, and
 trees. Alignments are in
 [lean4-phylo-alignment](https://github.com/formal-phylogenetics/lean4-phylo-alignment), species
 trees in
-[lean4-phylo-species-tree](https://github.com/formal-phylogenetics/lean4-phylo-species-tree), and
-networks in [lean4-phylo-network](https://github.com/formal-phylogenetics/lean4-phylo-network). The
+[lean4-phylo-species-tree](https://github.com/formal-phylogenetics/lean4-phylo-species-tree),
+networks in [lean4-phylo-network](https://github.com/formal-phylogenetics/lean4-phylo-network), and
+the placement of new sequences on a tree in
+[lean4-phylo-placement](https://github.com/formal-phylogenetics/lean4-phylo-placement). The
 substitution models of family 3 go to the root library.
 
 <!-- BEGIN catalog:papers -->
